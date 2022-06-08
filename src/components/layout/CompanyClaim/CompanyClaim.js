@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 
 const CompanyClaim = () => {
-  const [cartNumber, setCartNumber] = useState(92342);
+  const [cartNumber, setCartNumber] = useState(0);
   const [cartNumberLenght] = useState(cartNumber.toString().length);
   const [classes, setClasses] = useState(styles.cartCounter);
   useEffect(() => {
