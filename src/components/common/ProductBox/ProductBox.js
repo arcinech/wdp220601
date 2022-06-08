@@ -55,9 +55,16 @@ const ProductBox = ({ name, price, promo, stars }) => {
           </Button>
         </div>
         <div className={styles.price}>
-          <Button noHover variant='small'>
-            $ {price}
-          </Button>
+          {isShown && (
+            <Button noHover variant='smallProduct'>
+              $ {price}
+            </Button>
+          )}
+          {!isShown && (
+            <Button noHover variant='small'>
+              $ {price}
+            </Button>
+          )}
         </div>
       </div>
     </div>
