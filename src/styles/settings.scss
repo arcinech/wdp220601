@@ -1,13 +1,23 @@
+//DO NOT USE!!
+
+$darkerGray: #292929;
+$darkGray: #2a2a2a;
+$gray: #363636;
+$lightGray: #434343;
+$orange: #d58e32;
+
+//DO NOT USE!!
+
 $base-padding: 24px;
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
+$header-topbar-bg: $lightGray;
+$header-bg: $gray;
 
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+$footer-claim-bg: $darkGray;
+$footer-bg: $gray;
 
-$primary: #d58e32;
+$primary: $orange;
 
-$text-color: #2a2a2a;
+$text-color: $darkGray;
 
-$form-border-color: #292929;
+$form-border-color: $darkerGray;
