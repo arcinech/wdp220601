@@ -4,6 +4,17 @@
   background-color: #ffffff;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
+  .buttons {
+    opacity: 0;
+  }
+  &:hover {
+    .buttons {
+      opacity: 1;
+    }
+    .price {
+      background-color: $primary;
+    }
+  }
   .photo {
     position: relative;
     padding: 80% 10px 0 10px;

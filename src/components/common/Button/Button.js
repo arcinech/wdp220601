@@ -3,19 +3,13 @@ import PropTypes from 'prop-types';
 
 import styles from './Button.module.scss';
 
-const Button = ({
-  children,
-  variant: propsVariant,
-  noHover,
-  className: propClassName,
-  ...props
-}) => {
+const Button = ({ children, variant, noHover, className: propClassName, ...props }) => {
   const classes = [];
 
   if (propClassName) classes.push(propClassName);
 
-  if (propsVariant) {
-    classes.push(styles[propsVariant]);
+  if (variant) {
+    classes.push(styles[variant]);
   } else classes.push('main');
 
   let Comp = 'a';

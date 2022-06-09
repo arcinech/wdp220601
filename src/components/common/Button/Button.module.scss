@@ -18,15 +18,6 @@
   }
 }
 
-.smallProduct {
-  @extend .main;
-  background-color: $primary;
-  font-size: 13px;
-  line-height: 24px;
-  padding: 5px 10px;
-  font-weight: 400;
-}
-
 .small {
   @extend .main;
   font-size: 13px;
