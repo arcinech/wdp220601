@@ -75,4 +75,17 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .priceBox {
+    display: inline-flex;
+    align-items: center;
+
+    & > p {
+      margin: 0 6px;
+      color:#A5A5A5;
+      text-decoration-line: line-through;
+      text-decoration-color: #2A2A2A;
+    }
+  }
+
 }
