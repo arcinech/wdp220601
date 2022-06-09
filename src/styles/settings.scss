@@ -2,22 +2,25 @@
 
 $darkerGray: #292929;
 $darkGray: #2a2a2a;
-$gray: #363636;
-$lightGray: #434343;
+$mediumDarkgray: #363636;
+$gray: #434343;
+$mediumLightGray: #b6b6b6;
 $orange: #d58e32;
+$white: #ffffff;
 
 //DO NOT USE!!
 
 $base-padding: 24px;
 
-$header-topbar-bg: $lightGray;
-$header-bg: $gray;
+$header-topbar-bg: $gray;
+$header-bg: $mediumDarkgray;
 
 $footer-claim-bg: $darkGray;
-$footer-bg: $gray;
+$footer-bg: $mediumDarkgray;
 
 $primary: $orange;
 
 $text-color: $darkGray;
+$text-color-light: $white;
 
 $form-border-color: $darkerGray;
