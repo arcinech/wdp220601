@@ -35,7 +35,13 @@
   line-height: 22px;
 
   &:not(.noHover):hover {
-    background-color: #2a2a2a;
+    background-color: $primary;
     color: #ffffff;
   }
 }
+
+.active {
+  @extend .outline;
+    color: #ffffff;
+    background-color: $primary;
+  }

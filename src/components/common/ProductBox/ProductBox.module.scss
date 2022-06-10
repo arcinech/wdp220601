@@ -4,6 +4,17 @@
   background-color: #ffffff;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
+  .buttons {
+    opacity: 0;
+  }
+  &:hover {
+    .buttons {
+      opacity: 1;
+    }
+    .priceButton {
+      background-color: $primary;
+    }
+  }
 
   .photo {
     position: relative;
@@ -15,6 +26,7 @@
     }
     overflow: hidden;
     align-items: flex-end;
+    min-height: 236px;
 
     .sale {
       position: absolute;
