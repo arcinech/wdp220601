@@ -35,7 +35,7 @@
   line-height: 22px;
 
   &:not(.noHover):hover {
-    background-color: $primary;
+    background-color: $bg-color-dark;
     color: #ffffff;
   }
 }
