@@ -67,6 +67,7 @@
     "react-test-renderer": "^16.9.0",
     "redux": "^4.0.4",
     "sass": "^1.52.3",
+    "slick-carousel": "^1.8.1",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
