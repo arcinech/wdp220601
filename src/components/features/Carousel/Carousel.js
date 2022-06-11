@@ -1,3 +1,4 @@
+import { Container } from 'react-bootstrap';
 import React from 'react';
 import Slider from 'react-slick';
 
@@ -38,7 +39,7 @@ const Carousel = () => {
   };
 
   return (
-    <div>
+    <Container>
       <h2> Multiple items </h2>
       <Slider {...settings}>
         <div>
@@ -69,7 +70,7 @@ const Carousel = () => {
           <h3>9</h3>
         </div>
       </Slider>
-    </div>
+    </Container>
   );
 };
 
