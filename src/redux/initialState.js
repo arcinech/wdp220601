@@ -212,6 +212,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+      favorite: true,
     },
     {
       id: 'aenean-ru-bristique-23',
