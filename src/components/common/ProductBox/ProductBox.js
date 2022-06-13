@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './ProductBox.module.scss';
@@ -11,7 +11,7 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import ProductImage from '../ProductImage/ProductImage';
-import { addCompare } from '../../../redux/productsRedux';
+import { addCompare, setFavorite } from '../../../redux/productsRedux';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare }) => {
@@ -25,6 +25,13 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
     if (compareNumber.length < 4) {
       dispatch(addCompare(id));
     }
+  };
+  const [isFavorite, setIsFavorite] = useState(favorite || false);
+
+  const changeFavorite = e => {
+    e.preventDefault();
+    setIsFavorite(!isFavorite);
+    dispatch(setFavorite({ id, favorite: isFavorite }));
   };
   return (
     <div className={styles.root}>
@@ -55,7 +62,7 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button variant={favorite ? 'active' : 'outline'}>
+           <Button variant={isFavorite ? 'active' : 'outline'} onClick={changeFavorite}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button
@@ -64,6 +71,17 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
           >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
+          <Button variant={compare ? 'active' : 'outline'}>
+            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+          </Button>
+        </div>
+        <div className={oldPrice ? styles.priceBox : ''}>
+          {oldPrice && <p>$ {oldPrice}</p>}
+          <div className={styles.price}>
+            <Button noHover variant='small' className={styles.priceButton}>
+              $ {price}
+            </Button>
+          </div>
         </div>
         <div className={oldPrice ? styles.priceBox : ''}>
           {oldPrice && <p>$ {oldPrice}</p>}
