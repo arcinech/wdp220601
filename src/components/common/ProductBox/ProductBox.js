@@ -62,7 +62,7 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-           <Button variant={isFavorite ? 'active' : 'outline'} onClick={changeFavorite}>
+          <Button variant={isFavorite ? 'active' : 'outline'} onClick={changeFavorite}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button
@@ -71,17 +71,6 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
           >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
-          <Button variant={compare ? 'active' : 'outline'}>
-            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-          </Button>
-        </div>
-        <div className={oldPrice ? styles.priceBox : ''}>
-          {oldPrice && <p>$ {oldPrice}</p>}
-          <div className={styles.price}>
-            <Button noHover variant='small' className={styles.priceButton}>
-              $ {price}
-            </Button>
-          </div>
         </div>
         <div className={oldPrice ? styles.priceBox : ''}>
           {oldPrice && <p>$ {oldPrice}</p>}
