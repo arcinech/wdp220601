@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 
 import NewFurniture from './NewFurniture';
 
-import { getAll } from '../../../redux/categoriesRedux.js';
-import { getNew } from '../../../redux/productsRedux.js';
+import { getAllCategories } from '../../../redux/categoriesRedux.js';
+import { getNewProducts } from '../../../redux/productsRedux.js';
 
 const mapStateToProps = state => ({
-  categories: getAll(state),
-  products: getNew(state),
+  categories: getAllCategories(state),
+  products: getNewProducts(state),
 });
 
 export default connect(mapStateToProps)(NewFurniture);
