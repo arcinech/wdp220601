@@ -8,6 +8,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
+  box-shadow: 2px 3.464px 6px $shadow-color;
 }
 
 .compare {
@@ -17,7 +18,9 @@
 }
 
 .image {
-  padding: 80px;
+  padding: 10px;
+  margin: 70px;
+  box-shadow: 2px 3.464px 6px $shadow-color;
 }
 
 .button {
