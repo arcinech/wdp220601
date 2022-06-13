@@ -16,22 +16,31 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 
 const NewFurniture = () => {
-  const [activePage, setActivePage] = useState(0);
+  const [prevButton, setPrevButton] = useState(false);
+  const [nextButton, setNextButtone] = useState(false);
   const [activeCategory, setActiveCategory] = useState('bed');
   const categories = useSelector(state => getAllCategories(state));
   const products = useSelector(state => getAllProducts(state));
   const sliderRef = useRef(null);
 
-  const handlePrev = useCallback(() => {
+  const handlePrev = useCallback(e => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slidePrev();
-    setActivePage();
+    if (e.type === 'mousedown') {
+      prevButton(true);
+    } else {
+      prevButton(false);
+    }
   }, []);
 
-  const handleNext = useCallback(() => {
+  const handleNext = useCallback(e => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slideNext();
-    setActivePage();
+    if (e.type === 'mousedown') {
+      setNextButtone(true);
+    } else {
+      setNextButtone(false);
+    }
   }, []);
 
   // const handlePageChange = newPage => {
@@ -85,10 +94,10 @@ const NewFurniture = () => {
           <div className={'col-auto ' + styles.dots}>
             <ul>
               <li>
-                <a onClick={handlePrev} className={activePage && styles.active} />
+                <a onClick={handlePrev} className={prevButton && styles.active} />
               </li>
               <li>
-                <a onClick={handleNext} className={activePage && styles.active} />
+                <a onClick={handleNext} className={nextButton && styles.active} />
               </li>
             </ul>
           </div>
