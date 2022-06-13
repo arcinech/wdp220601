@@ -16,13 +16,13 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <MainLayout>
-        <CompareBar />
         <Switch>
           <Route exact path={'/'} component={Homepage} />
           <Route exact path={'/shop/:categoryId'} component={ProductList} />
           <Route exact path={'/product/:productId'} component={ProductPage} />
         </Switch>
       </MainLayout>
+      <CompareBar />
     </BrowserRouter>
   </Provider>
 );
