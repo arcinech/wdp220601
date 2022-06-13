@@ -27,9 +27,9 @@ const NewFurniture = () => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slidePrev();
     if (e.type === 'mousedown') {
-      prevButton(true);
+      setPrevButton(true);
     } else {
-      prevButton(false);
+      setPrevButton(false);
     }
   }, []);
 
