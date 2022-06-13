@@ -2,18 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
-import Swipeable from '../../features/Swipeable/Swipeable';
 import { useState, useCallback, useRef } from 'react';
 import { getAllProducts } from '../../../redux/productsRedux';
 import { getAllCategories } from '../../../redux/categoriesRedux';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Grid, Pagination } from 'swiper';
-import 'swiper/css/bundle';
-import 'swiper/css';
-import 'swiper/css/grid';
-import 'swiper/css/pagination';
+import {
+  Swiper,
+  SwiperSlide,
+} from '../../../../node_modules/swiper/react/swiper-react.js';
+import { Grid } from 'swiper';
+import '../../../../node_modules/swiper/modules/grid/grid.scss';
+import '../../../../node_modules/swiper/swiper.scss';
+import '../../../../node_modules/swiper/modules/pagination/pagination.scss';
 
 const NewFurniture = () => {
   const [prevButton, setPrevButton] = useState(false);
@@ -43,30 +44,11 @@ const NewFurniture = () => {
     }
   }, []);
 
-  // const handlePageChange = newPage => {
-  //   setActivePage(newPage);
-  // };
-
   const handleCategoryChange = newCategory => {
     setActiveCategory(newCategory);
   };
 
   const categoryProducts = products.filter(item => item.category === activeCategory);
-  // const pagesCount = Math.ceil(categoryProducts.length / 8);
-
-  // const dots = [];
-  // for (let i = 0; i < pagesCount; i++) {
-  //   dots.push(
-  //     <li key={i}>
-  //       <a
-  //         onClick={() => handlePageChange(i)}
-  //         className={i === activePage && styles.active}
-  //       >
-  //         page {i}
-  //       </a>
-  //     </li>
-  //   );
-  // }
 
   return (
     <div className={`${styles.root} container`}>
@@ -110,12 +92,9 @@ const NewFurniture = () => {
           rows: 2,
           fill: 'row',
         }}
-        slidesPerColumnFill='row'
+        slidespercolumnfill='row'
         spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Grid, Pagination]}
+        modules={[Grid]}
         className='mySwiper'
       >
         {categoryProducts.map(item => (
