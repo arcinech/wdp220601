@@ -1,6 +1,6 @@
 /* selectors */
-export const getAll = ({ categories }) => categories;
-export const getCount = ({ categories }) => categories.length;
+export const getAllCategories = state => state.categories;
+export const getCountCategories = ({ categories }) => categories.length;
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
