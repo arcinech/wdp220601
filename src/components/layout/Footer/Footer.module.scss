@@ -23,7 +23,7 @@
             color: $footer-link-color;
 
             &:hover {
-              color: $text-color-light;
+              color: $hover-text-light;
             }
           }
         }
@@ -72,7 +72,7 @@
             text-decoration: none;
 
             &:hover {
-              color: $primary;
+              color: $hover-color;
             }
           }
         }
