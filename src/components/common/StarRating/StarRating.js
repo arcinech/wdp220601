@@ -9,7 +9,7 @@ const StarRating = () => {
 
   return (
     <div>
-      {[...Array(5)].map(i => {
+      {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
 
         return (
@@ -21,8 +21,8 @@ const StarRating = () => {
               onClick={() => setRating(ratingValue)}
             />
             <FontAwesomeIcon
-              color={ratingValue <= rating ? 'yellow' : 'black'}
-              icon={farStar}
+              color={ratingValue <= rating ? '#d58e32' : 'black'}
+              icon={faStar}
             />
           </label>
         );
