@@ -16,7 +16,7 @@ import FeedbackContent from '../../common/FeedbackContent/FeedbackContent';
 
 const Feedback = () => {
   const feedbacks = useSelector(state => getAllFeedbacks(state));
-  const [activeFeedback] = useState(feedbacks.filtre(item => item.id === 1));
+  const [activeFeedback] = useState(feedbacks.filter(item => item.id === 1));
 
   return (
     <div className={`${styles.root} container`}>
@@ -29,6 +29,9 @@ const Feedback = () => {
             <ul>
               <li>
                 <a className={styles.active} />
+              </li>
+              <li>
+                <a />
               </li>
               <li>
                 <a />
