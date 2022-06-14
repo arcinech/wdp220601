@@ -263,6 +263,23 @@ const initialState = {
   cart: {
     products: [],
   },
+  feedback: [
+    {
+      name: 'John Deere',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
+    },
+    {
+      name: 'Alex Kingstone',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
+    },
+    {
+      name: 'Cecil Stedman',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
+    },
+  ],
 };
 
 export default initialState;
