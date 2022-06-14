@@ -1,8 +1,8 @@
 /* selectors */
-export const getAll = ({ products }) => products;
-export const getCount = ({ products }) => products.length;
+export const getAllProducts = (state) => state.products;
+export const getCountProducts = ({ products }) => products.length;
 
-export const getNew = ({ products }) =>
+export const getNewProducts = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
 /* action creators */

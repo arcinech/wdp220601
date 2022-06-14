@@ -1,83 +1,113 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import { useState, useCallback, useRef } from 'react';
+import { getAllProducts } from '../../../redux/productsRedux';
+import { getAllCategories } from '../../../redux/categoriesRedux';
+import { useSelector } from 'react-redux';
+import clsx from 'clsx';
+import {
+  Swiper,
+  SwiperSlide,
+} from '../../../../node_modules/swiper/react/swiper-react.js';
+import { Grid } from 'swiper';
+import '../../../../node_modules/swiper/modules/grid/grid.scss';
+import '../../../../node_modules/swiper/swiper.scss';
+import '../../../../node_modules/swiper/modules/pagination/pagination.scss';
 
-class NewFurniture extends React.Component {
-  state = {
-    activePage: 0,
-    activeCategory: 'bed',
+const NewFurniture = () => {
+  const [prevButton, setPrevButton] = useState(false);
+  const [nextButton, setNextButtone] = useState(false);
+  const [activeCategory, setActiveCategory] = useState('bed');
+  const categories = useSelector(state => getAllCategories(state));
+  const products = useSelector(state => getAllProducts(state));
+  const sliderRef = useRef(null);
+
+  const handlePrev = useCallback(e => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+    if (e.type === 'mousedown') {
+      setPrevButton(true);
+    } else {
+      setPrevButton(false);
+    }
+  }, []);
+
+  const handleNext = useCallback(e => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+    if (e.type === 'mousedown') {
+      setNextButtone(true);
+    } else {
+      setNextButtone(false);
+    }
+  }, []);
+
+  const handleCategoryChange = newCategory => {
+    setActiveCategory(newCategory);
   };
 
-  handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
-  }
+  const categoryProducts = products.filter(item => item.category === activeCategory);
 
-  handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
-  }
-
-  render() {
-    const { categories, products } = this.props;
-    const { activeCategory, activePage } = this.state;
-
-    const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
-
-    const dots = [];
-    for (let i = 0; i < pagesCount; i++) {
-      dots.push(
-        <li>
-          <a
-            onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
-          >
-            page {i}
-          </a>
-        </li>
-      );
-    }
-
-    return (
-      <div className={styles.root}>
-        <div className='container'>
-          <div className={styles.panelBar}>
-            <div className='row no-gutters align-items-end'>
-              <div className={'col-auto ' + styles.heading}>
-                <h3>New furniture</h3>
-              </div>
-              <div className={'col ' + styles.menu}>
-                <ul>
-                  {categories.map(item => (
-                    <li key={item.id}>
-                      <a
-                        className={item.id === activeCategory && styles.active}
-                        onClick={() => this.handleCategoryChange(item.id)}
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className={'col-auto ' + styles.dots}>
-                <ul>{dots}</ul>
-              </div>
-            </div>
+  return (
+    <div className={`${styles.root} container`}>
+      <div className={styles.panelBar}>
+        <div className='row no-gutters align-items-end'>
+          <div className={'col-auto ' + styles.heading}>
+            <h3>New furniture</h3>
           </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+          <div className={'col ' + styles.menu}>
+            <ul>
+              {categories.map(item => (
+                <li key={item.id}>
+                  <a
+                    className={clsx({
+                      [styles.active]: item.id === activeCategory,
+                    })}
+                    onClick={() => handleCategoryChange(item.id)}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={'col-auto ' + styles.dots}>
+            <ul>
+              <li>
+                <a onClick={handlePrev} className={prevButton && styles.active} />
+              </li>
+              <li>
+                <a onClick={handleNext} className={nextButton && styles.active} />
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    );
-  }
-}
+      <Swiper
+        ref={sliderRef}
+        slidesPerView={5}
+        grid={{
+          rows: 2,
+          fill: 'row',
+        }}
+        slidespercolumnfill='row'
+        spaceBetween={30}
+        modules={[Grid]}
+        className='mySwiper'
+      >
+        {categoryProducts.map(item => (
+          <SwiperSlide key={item.id}>
+            <ProductBox {...item} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+
+export default NewFurniture;
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
@@ -104,5 +134,3 @@ NewFurniture.defaultProps = {
   categories: [],
   products: [],
 };
-
-export default NewFurniture;
