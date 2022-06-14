@@ -22,21 +22,24 @@ const Feedback = () => {
     <div className={`${styles.root} container`}>
       <div className={styles.panelBar}>
         <div className='row no-gutters align-items-end'>
-          <div className={'col-auto ' + styles.heading}>
-            <h3>Feedback</h3>
+          <div className={styles.heading}>
+            <h3>Client Feedback</h3>
           </div>
-          <div className={'col-auto ' + styles.dots}>
-            <ul>
-              <li>
-                <a className={styles.active} />
-              </li>
-              <li>
-                <a />
-              </li>
-              <li>
-                <a />
-              </li>
-            </ul>
+          <span className='col '></span>
+          <div>
+            <div className={styles.dots}>
+              <ul>
+                <li>
+                  <a className={styles.active} />
+                </li>
+                <li>
+                  <a />
+                </li>
+                <li>
+                  <a />
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <Swiper>
