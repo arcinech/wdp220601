@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faStar,
-  faExchangeAlt,
-  faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import ProductImage from '../ProductImage/ProductImage';
-
 import { useDispatch } from 'react-redux';
 import { setFavorite } from '../../../redux/productsRedux';
+import StarRating from '../StarRating/StarRating';
 
 const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare }) => {
   const dispatch = useDispatch();
@@ -39,7 +34,7 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
-        <div className={styles.stars}>
+        {/* <div className={styles.stars}>
           {[1, 2, 3, 4, 5].map(i => (
             <a key={i} href='#'>
               {i <= stars ? (
@@ -49,7 +44,8 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
               )}
             </a>
           ))}
-        </div>
+        </div> */}
+        <StarRating />
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
