@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Feedback.module.scss';
 
@@ -7,7 +8,6 @@ import {
   Swiper,
   SwiperSlide,
 } from '../../../../node_modules/swiper/react/swiper-react.js';
-import { Grid } from 'swiper';
 import '../../../../node_modules/swiper/modules/grid/grid.scss';
 import '../../../../node_modules/swiper/swiper.scss';
 import '../../../../node_modules/swiper/modules/pagination/pagination.scss';
@@ -41,7 +41,7 @@ const Feedback = () => {
         </div>
         <Swiper>
           <SwiperSlide key='ss'>
-            <FeedbackContent active={activeFeedback} />
+            <FeedbackContent active={activeFeedback[0]} />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -50,3 +50,7 @@ const Feedback = () => {
 };
 
 export default Feedback;
+
+FeedbackContent.propTypes = {
+  children: PropTypes.node,
+};
