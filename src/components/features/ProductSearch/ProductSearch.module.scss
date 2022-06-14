@@ -79,8 +79,8 @@
     }
     ul > li ul li a:hover,
     ul > li ul li:hover > a {
-      color: #ffffff;
-      background-color: $primary;
+      color: $hover-text-light;
+      background-color: $hover-color;
     }
   }
 
