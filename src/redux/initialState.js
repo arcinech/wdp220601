@@ -263,18 +263,21 @@ const initialState = {
   cart: {
     products: [],
   },
-  feedback: [
+  feedbacks: [
     {
+      id: 1,
       name: 'John Deere',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
     },
     {
+      id: 2,
       name: 'Alex Kingstone',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
     },
     {
+      id: 3,
       name: 'Cecil Stedman',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
