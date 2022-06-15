@@ -10,7 +10,17 @@ import { useDispatch } from 'react-redux';
 import { setFavorite, setProductRating } from '../../../redux/productsRedux';
 import StarRating from '../StarRating/StarRating';
 
-const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare }) => {
+const ProductBox = ({
+  name,
+  price,
+  promo,
+  stars,
+  userRating,
+  oldPrice,
+  id,
+  favorite,
+  compare,
+}) => {
   const dispatch = useDispatch();
   const [isFavorite, setIsFavorite] = useState(favorite || false);
 
@@ -20,8 +30,8 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
     dispatch(setFavorite({ id, favorite: isFavorite }));
   };
 
-  const changeStarRating = starRatingValue => {
-    dispatch(setProductRating({ id, stars: starRatingValue }));
+  const changeStarRating = starRating => {
+    dispatch(setProductRating({ id, ...starRating }));
   };
 
   return (
@@ -38,7 +48,7 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
-        <StarRating stars={stars} action={changeStarRating} />
+        <StarRating stars={stars} userRating={userRating} action={changeStarRating} />
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
@@ -70,6 +80,7 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  userRating: PropTypes.bool,
   oldPrice: PropTypes.number,
   favorite: PropTypes.bool,
   compare: PropTypes.bool,

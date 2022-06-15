@@ -229,6 +229,7 @@ const initialState = {
       category: 'bed',
       price: 30,
       stars: 2,
+      userRating: false,
       promo: 'sale',
       newFurniture: true,
     },
