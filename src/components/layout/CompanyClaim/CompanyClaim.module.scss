@@ -118,3 +118,19 @@
     }
   }
 }
+
+@media (max-width: 560px) {
+  .phoneNumber {
+    p {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .number {
+      font-size: 14px;
+    }
+  }
+  .cart {
+    top: -6px;
+  }
+}
