@@ -7,7 +7,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import ProductImage from '../ProductImage/ProductImage';
 import { useDispatch } from 'react-redux';
-import { setFavorite } from '../../../redux/productsRedux';
+import { setFavorite, setProductRating } from '../../../redux/productsRedux';
 import StarRating from '../StarRating/StarRating';
 
 const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare }) => {
@@ -18,6 +18,10 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
     e.preventDefault();
     setIsFavorite(!isFavorite);
     dispatch(setFavorite({ id, favorite: isFavorite }));
+  };
+
+  const changeStarRating = starRatingValue => {
+    dispatch(setProductRating({ id, stars: starRatingValue }));
   };
 
   return (
@@ -34,18 +38,7 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
-        {/* <div className={styles.stars}>
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              {i <= stars ? (
-                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-              )}
-            </a>
-          ))}
-        </div> */}
-        <StarRating />
+        <StarRating stars={stars} action={changeStarRating} />
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
