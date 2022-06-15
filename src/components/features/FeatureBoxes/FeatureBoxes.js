@@ -8,11 +8,10 @@ import {
   faBullhorn,
 } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './FeatureBoxes.module.scss';
 import FeatureBox from '../../common/FeatureBox/FeatureBox';
 
 const FeatureBoxes = () => (
-  <div className={styles.root}>
+  <div>
     <div className='container'>
       <div className='row'>
         <div className='col-12 col-sm-6 col-lg'>
