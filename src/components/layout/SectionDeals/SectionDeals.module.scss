@@ -1,0 +1,28 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  display: flex;
+  max-height: 420px;
+
+  .large {
+    height: 100%;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .smaller {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      max-height: 195px;
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+}
