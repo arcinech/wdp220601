@@ -2,27 +2,29 @@ import React, { useState } from 'react';
 import styles from './StarRating.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
 const StarRating = () => {
-  const [rating, setRating] = useState(null);
+  const [starRating, setStarRating] = useState(null);
+  const [starHover, setStarHover] = useState(null);
 
   return (
     <div>
       {[...Array(5)].map((star, i) => {
-        const ratingValue = i + 1;
+        const starRatingValue = i + 1;
 
         return (
           <label className={styles.star} key={i}>
             <input
               type='radio'
               name='rating'
-              value={ratingValue}
-              onClick={() => setRating(ratingValue)}
+              value={starRatingValue}
+              onClick={() => setStarRating(starRatingValue)}
             />
             <FontAwesomeIcon
-              color={ratingValue <= rating ? '#d58e32' : 'black'}
+              color={starRatingValue <= (starHover || starRating) ? '#d58e32' : 'black'}
               icon={faStar}
+              onMouseEnter={() => setStarHover(starRatingValue)}
+              onMouseLeave={() => setStarHover(null)}
             />
           </label>
         );
