@@ -17,25 +17,26 @@ const StarRating = props => {
         const starRatingValue = i + 1;
 
         const handleSubmit = () => {
-          if (starRatingValue !== userRating) {
+          if (starRatingValue === userRating && ratingActive) {
+            setUserRating(null);
+            setRatingActive(false);
+          } else if (starRatingValue !== userRating) {
             setUserRating(starRatingValue);
-          } else {
             setRatingActive(true);
-            setRatingActive(prevState => !prevState);
           }
-          setUserRating(starRatingValue);
-          props.action({ userRating: userRating, ratingActive: ratingActive });
+          // setUserRating(starRatingValue);
+          props.action({ userRating: starRatingValue, ratingActive: ratingActive });
         };
 
         const handleMouseOnStar = () => {
-          if (!ratingActive) {
-            setRatingActive(true);
-          }
+          // if (ratingActive) {
+          //   setRatingActive(true);
+          // }
           setStarHover(starRatingValue);
         };
 
         const handleMouseLeaveStar = () => {
-          // if (!ratingActive) {
+          // if (ratingActive) {
           //   setRatingActive(false);
           // }
           setStarHover(null);
