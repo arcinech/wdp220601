@@ -17,7 +17,7 @@ const StarRating = props => {
         const starRatingValue = i + 1;
 
         const handleSubmit = () => {
-          if (starRatingValue === userRating && ratingActive) {
+          if (ratingActive && starRatingValue === userRating) {
             setUserRating(null);
             setRatingActive(false);
           } else if (starRatingValue !== userRating) {
