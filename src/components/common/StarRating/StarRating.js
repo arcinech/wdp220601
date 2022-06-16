@@ -6,8 +6,9 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
 const StarRating = props => {
-  const [starRating, setStarRating] = useState(props.stars || null);
-  const [userRating, setUserRating] = useState(props.userRating || false);
+  const [starRating] = useState(props.stars || null);
+  const [userRating, setUserRating] = useState(props.userRating || null);
+  const [ratingActive, setRatingActive] = useState(props.ratingActive || false);
   const [starHover, setStarHover] = useState(null);
 
   return (
@@ -16,11 +17,28 @@ const StarRating = props => {
         const starRatingValue = i + 1;
 
         const handleSubmit = () => {
-          if (!userRating) {
-            setUserRating(true);
+          if (starRatingValue !== userRating) {
+            setUserRating(starRatingValue);
+          } else {
+            setRatingActive(true);
+            setRatingActive(prevState => !prevState);
           }
-          setStarRating(starRatingValue);
-          props.action({ starRatingValue, userRating });
+          setUserRating(starRatingValue);
+          props.action({ userRating: userRating, ratingActive: ratingActive });
+        };
+
+        const handleMouseOnStar = () => {
+          if (!ratingActive) {
+            setRatingActive(true);
+          }
+          setStarHover(starRatingValue);
+        };
+
+        const handleMouseLeaveStar = () => {
+          // if (!ratingActive) {
+          //   setRatingActive(false);
+          // }
+          setStarHover(null);
         };
 
         return (
@@ -33,19 +51,19 @@ const StarRating = props => {
             />
             <FontAwesomeIcon
               color={
-                userRating && starRatingValue <= (starHover || starRating)
+                ratingActive &&
+                starRatingValue <= (starHover || userRating || starRating)
                   ? '#d58e32'
                   : 'black'
               }
-              icon={starRatingValue <= (starHover || starRating) ? faStar : farStar}
-              onMouseEnter={() => {
-                setUserRating(true);
-                setStarHover(starRatingValue);
-              }}
-              onMouseLeave={() => {
-                setUserRating(userRating);
-                setStarHover(null);
-              }}
+              icon={
+                starRatingValue <=
+                (starHover || (ratingActive && userRating) || starRating)
+                  ? faStar
+                  : farStar
+              }
+              onMouseEnter={handleMouseOnStar}
+              onMouseLeave={handleMouseLeaveStar}
             />
           </label>
         );
@@ -59,6 +77,7 @@ export default StarRating;
 StarRating.propTypes = {
   id: PropTypes.string,
   stars: PropTypes.number,
-  userRating: PropTypes.bool,
+  userRating: PropTypes.number,
+  ratingActive: PropTypes.bool,
   action: PropTypes.func,
 };

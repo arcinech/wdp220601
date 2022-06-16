@@ -16,6 +16,7 @@ const ProductBox = ({
   promo,
   stars,
   userRating,
+  ratingActive,
   oldPrice,
   id,
   favorite,
@@ -48,7 +49,12 @@ const ProductBox = ({
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
-        <StarRating stars={stars} userRating={userRating} action={changeStarRating} />
+        <StarRating
+          stars={stars}
+          userRating={userRating}
+          ratingActive={ratingActive}
+          action={changeStarRating}
+        />
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
@@ -80,7 +86,8 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
-  userRating: PropTypes.bool,
+  userRating: PropTypes.number,
+  ratingActive: PropTypes.bool,
   oldPrice: PropTypes.number,
   favorite: PropTypes.bool,
   compare: PropTypes.bool,
