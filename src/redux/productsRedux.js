@@ -11,12 +11,12 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
 const SET_FAVORITE = createActionName('SET_FAVORITE');
-const ADD_COMPARE = createActionName('ADD_COMPARE');
+const TOGGLE_COMPARE = createActionName('TOGGLE_COMPARE');
 const REMOVE_COMPARE = createActionName('REMOVE_COMPARE');
 
 /* action creators */
 export const setFavorite = payload => ({ type: SET_FAVORITE, payload });
-export const addCompare = payload => ({ payload, type: ADD_COMPARE });
+export const toggleCompare = payload => ({ payload, type: TOGGLE_COMPARE });
 
 export const removeCompare = payload => {
   return { payload, type: REMOVE_COMPARE };
@@ -29,12 +29,12 @@ export default function reducer(statePart = [], action = {}) {
       return statePart.map(product =>
         product.id === action.payload.id ? { ...product, ...action.payload } : product
       );
-    case ADD_COMPARE: {
+    case TOGGLE_COMPARE: {
       return statePart.map(item => {
         if (item.id !== action.payload) return item;
         return {
           ...item,
-          compare: true,
+          compare: !item.compare,
         };
       });
     }

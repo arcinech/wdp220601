@@ -11,7 +11,7 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import ProductImage from '../ProductImage/ProductImage';
-import { addCompare, setFavorite } from '../../../redux/productsRedux';
+import { toggleCompare, setFavorite } from '../../../redux/productsRedux';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare }) => {
@@ -23,7 +23,7 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
   const handleClick = e => {
     e.preventDefault();
     if (compareNumber.length < 4) {
-      dispatch(addCompare(id));
+      dispatch(toggleCompare(id));
     }
   };
   const [isFavorite, setIsFavorite] = useState(favorite || false);
