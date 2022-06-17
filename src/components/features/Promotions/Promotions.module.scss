@@ -2,4 +2,49 @@
 
 .root {
   padding: 5rem 0;
+  .hover {
+    &:hover {
+      .hotdeals {
+        color: $primary;
+      }
+    }
+  }
+  .hotdeals {
+    background-color: $bg-color-dark;
+    color: $text-color-light;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 15px;
+  }
+  .dots {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(15px);
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 1rem;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        margin-left: 0.5rem;
+
+        a {
+          display: block;
+          width: 13px;
+          height: 13px;
+          border-radius: 6px;
+          background-color: $NewFurniture-link-bg;
+          font-size: 0;
+
+          &.active,
+          &:hover {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
 }
