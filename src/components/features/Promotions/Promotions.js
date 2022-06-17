@@ -6,7 +6,6 @@ import styles from './Promotions.module.scss';
 
 const Promotions = () => {
   const hotdeals = useSelector(state => state.hotdeals);
-  console.log(hotdeals);
   const [activeDot] = useState(2);
   return (
     <div className={`${styles.root} container`}>
@@ -30,9 +29,8 @@ const Promotions = () => {
           </div>
           <div>
             {hotdeals.map(item => {
-              console.log(item.dotId, activeDot);
               if (item.dotId === activeDot) {
-                return <ProductBox {...item} />;
+                return <ProductBox key={item.id} {...item} type='hot' />;
               }
             })}
           </div>
