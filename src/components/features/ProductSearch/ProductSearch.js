@@ -6,10 +6,10 @@ import { faListUl, faSearch, faCaretDown } from '@fortawesome/free-solid-svg-ico
 
 import styles from './ProductSearch.module.scss';
 import { useSelector } from 'react-redux';
-import { getAllCategories } from '../../../redux/categoriesRedux';
+import { getAll } from '../../../redux/categoriesRedux';
 
 const ProductSearch = () => {
-  const categories = useSelector(getAllCategories);
+  const categories = useSelector(getAll);
 
   return (
     <form action='' className={styles.root}>
