@@ -11,12 +11,21 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import ProductImage from '../ProductImage/ProductImage';
-
-import { useDispatch } from 'react-redux';
-import { setFavorite } from '../../../redux/productsRedux';
+import { toggleCompare, setFavorite } from '../../../redux/productsRedux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare }) => {
   const dispatch = useDispatch();
+  const compareNumber = useSelector(state =>
+    state.products.filter(item => item.compare === true)
+  );
+
+  const handleClick = e => {
+    e.preventDefault();
+    if (compareNumber.length < 4) {
+      dispatch(toggleCompare(id));
+    }
+  };
   const [isFavorite, setIsFavorite] = useState(favorite || false);
 
   const changeFavorite = e => {
@@ -24,7 +33,6 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
     setIsFavorite(!isFavorite);
     dispatch(setFavorite({ id, favorite: isFavorite }));
   };
-
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -57,7 +65,10 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
           <Button variant={isFavorite ? 'active' : 'outline'} onClick={changeFavorite}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant={compare ? 'active' : 'outline'}>
+          <Button
+            variant={compare ? 'active' : 'outline'}
+            onClick={e => handleClick(e)}
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
