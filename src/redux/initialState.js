@@ -303,6 +303,27 @@ const initialState = {
   cart: {
     products: [],
   },
+  deals: [
+    {
+      id: 'deal-1',
+      name: 'GUEST ROOM',
+      subname: 'SOFA',
+      value: '-20%',
+      image: '/images/deal-1.jpeg',
+    },
+    {
+      id: 'deal-2',
+      name: 'OFFICE CHAIR',
+      subname: 'COLLECTION',
+      value: '$200.00',
+      image: '/images/deal-2.jpeg',
+    },
+    {
+      id: 'deal-3',
+      name: 'SPECIAL COLLECTION',
+      subname: 'SAVE UP 45% OF FURNITURE',
+      image: '/images/deal-3.jpeg',
+  },
   feedbacks: [
     {
       id: 1,
