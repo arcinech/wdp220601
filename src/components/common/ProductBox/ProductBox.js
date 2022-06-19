@@ -36,7 +36,58 @@ const ProductBox = ({
     dispatch(setFavorite({ id, favorite: isFavorite }));
   };
 
-  if (type) {
+  if (!type) {
+    return (
+      <div className={styles.root}>
+        <div className={styles.photo}>
+          <ProductImage id={id} />
+          {promo && <div className={styles.sale}>{promo}</div>}
+          <div className={styles.buttons}>
+            <Button variant='small'>Quick View</Button>
+            <Button variant='small'>
+              <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
+            </Button>
+          </div>
+        </div>
+        <div className={styles.content}>
+          <h5>{name}</h5>
+          <div className={styles.stars}>
+            {[1, 2, 3, 4, 5].map(i => (
+              <a key={i} href='#'>
+                {i <= stars ? (
+                  <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
+                ) : (
+                  <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className={styles.line}></div>
+        <div className={styles.actions}>
+          <div className={styles.outlines}>
+            <Button
+              variant={isFavorite ? 'active' : 'outline'}
+              onClick={changeFavorite}
+            >
+              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+            </Button>
+            <Button variant={compare ? 'active' : 'outline'}>
+              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+            </Button>
+          </div>
+          <div className={oldPrice ? styles.priceBox : ''}>
+            {oldPrice && <p>$ {oldPrice}</p>}
+            <div className={styles.price}>
+              <Button noHover variant='small' className={styles.priceButton}>
+                $ {price}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
     return (
       <div className={styles.root}>
         <div className={styles.photo}>
@@ -86,57 +137,6 @@ const ProductBox = ({
             <Button variant={'outline'}>
               <FontAwesomeIcon icon={faEye} />
             </Button>
-            <Button
-              variant={isFavorite ? 'active' : 'outline'}
-              onClick={changeFavorite}
-            >
-              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-            </Button>
-            <Button variant={compare ? 'active' : 'outline'}>
-              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-            </Button>
-          </div>
-          <div className={oldPrice ? styles.priceBox : ''}>
-            {oldPrice && <p>$ {oldPrice}</p>}
-            <div className={styles.price}>
-              <Button noHover variant='small' className={styles.priceButton}>
-                $ {price}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className={styles.root}>
-        <div className={styles.photo}>
-          <ProductImage id={id} />
-          {promo && <div className={styles.sale}>{promo}</div>}
-          <div className={styles.buttons}>
-            <Button variant='small'>Quick View</Button>
-            <Button variant='small'>
-              <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-            </Button>
-          </div>
-        </div>
-        <div className={styles.content}>
-          <h5>{name}</h5>
-          <div className={styles.stars}>
-            {[1, 2, 3, 4, 5].map(i => (
-              <a key={i} href='#'>
-                {i <= stars ? (
-                  <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-                ) : (
-                  <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-                )}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className={styles.line}></div>
-        <div className={styles.actions}>
-          <div className={styles.outlines}>
             <Button
               variant={isFavorite ? 'active' : 'outline'}
               onClick={changeFavorite}
