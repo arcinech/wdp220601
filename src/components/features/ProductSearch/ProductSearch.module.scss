@@ -1,16 +1,14 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid $form-border-color;
-  display: inline-flex;
-  height: 45px;
   color: $text-color;
 
   .category {
-    border-right: 1px solid $form-border-color;
+    border: 1px solid $form-border-color;
     display: flex;
     align-items: center;
     position: relative;
+    height: 45px;
 
     .icon:first-child {
       color: $primary;
@@ -85,9 +83,11 @@
   }
 
   .searchField {
+    border: 1px solid $form-border-color;
     display: flex;
     align-items: center;
     position: relative;
+    height: 45px;
 
     input {
       border: 0;
