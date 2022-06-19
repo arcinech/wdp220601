@@ -10,10 +10,10 @@ const MenuBar = ({ children }) => (
   <div className={styles.root}>
     <Navbar collapseOnSelect expand='sm'>
       <div className='container flex-wrap'>
-        <div className='col order-md-2 order-lg-1'>
+        <div className='col col-xl-5 order-sm-2 order-lg-1'>
           <ProductSearch />
         </div>
-        <div className='order-md-1 order-lg-2'>
+        <div className='order-sm-1 order-lg-2'>
           <Navbar.Toggle aria-controls='responsive-navbar' />
           <Navbar.Collapse id='responsive-navbar'>
             <Nav className={`'col-auto' + ${styles.menu}`}>
