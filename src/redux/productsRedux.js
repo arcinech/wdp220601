@@ -1,6 +1,8 @@
 /* selectors */
 export const getAllProducts = state => state.products;
 export const getCountProducts = ({ products }) => products.length;
+export const getProductById = ({ products }, productId) =>
+  products.find(product => product.id === productId);
 
 export const getNewProducts = ({ products }) =>
   products.filter(item => item.newFurniture === true);

@@ -10,36 +10,25 @@ import { useDispatch } from 'react-redux';
 import { setFavorite, setProductRating } from '../../../redux/productsRedux';
 import StarRating from '../StarRating/StarRating';
 
-const ProductBox = ({
-  name,
-  price,
-  promo,
-  stars,
-  userRating,
-  ratingActive,
-  oldPrice,
-  id,
-  favorite,
-  compare,
-}) => {
+const ProductBox = ({ ...props }) => {
   const dispatch = useDispatch();
-  const [isFavorite, setIsFavorite] = useState(favorite || false);
+  const [isFavorite, setIsFavorite] = useState(props.favorite || false);
 
   const changeFavorite = e => {
     e.preventDefault();
     setIsFavorite(!isFavorite);
-    dispatch(setFavorite({ id, favorite: isFavorite }));
+    dispatch(setFavorite({ id: props.id, favorite: isFavorite }));
   };
 
   const changeStarRating = starRating => {
-    dispatch(setProductRating({ id, ...starRating }));
+    dispatch(setProductRating({ id: props.id, ...starRating }));
   };
 
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
-        <ProductImage id={id} />
-        {promo && <div className={styles.sale}>{promo}</div>}
+        <ProductImage id={props.id} />
+        {props.promo && <div className={styles.sale}>{props.promo}</div>}
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
           <Button variant='small'>
@@ -48,11 +37,12 @@ const ProductBox = ({
         </div>
       </div>
       <div className={styles.content}>
-        <h5>{name}</h5>
+        <h5>{props.name}</h5>
         <StarRating
-          stars={stars}
-          userRating={userRating}
-          ratingActive={ratingActive}
+          id={props.id}
+          stars={props.stars}
+          userRating={props.userRating}
+          ratingActive={props.ratingActive}
           action={changeStarRating}
         />
       </div>
@@ -62,15 +52,15 @@ const ProductBox = ({
           <Button variant={isFavorite ? 'active' : 'outline'} onClick={changeFavorite}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant={compare ? 'active' : 'outline'}>
+          <Button variant={props.compare ? 'active' : 'outline'}>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
-        <div className={oldPrice ? styles.priceBox : ''}>
-          {oldPrice && <p>$ {oldPrice}</p>}
+        <div className={props.oldPrice ? styles.priceBox : ''}>
+          {props.oldPrice && <p>$ {props.oldPrice}</p>}
           <div className={styles.price}>
             <Button noHover variant='small' className={styles.priceButton}>
-              $ {price}
+              $ {props.price}
             </Button>
           </div>
         </div>

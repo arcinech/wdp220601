@@ -17,14 +17,18 @@ const StarRating = props => {
         const starRatingValue = i + 1;
 
         const handleSubmit = () => {
-          if (ratingActive && starRatingValue === userRating) {
+          if (userRating === starRatingValue) {
             setUserRating(null);
-            setRatingActive(false);
-          } else if (starRatingValue !== userRating) {
-            setUserRating(starRatingValue);
-            setRatingActive(true);
+            setRatingActive(ratingActive);
           }
+          // if (starRatingValue !== userRating) {
+          //   setUserRating(starRatingValue);
+          //   setRatingActive(true);
+          // }
           // setUserRating(starRatingValue);
+          console.log('ratingActive ' + ratingActive);
+          console.log('starRatingValue ' + starRatingValue);
+          console.log('userRating ' + userRating);
           props.action({ userRating: starRatingValue, ratingActive: ratingActive });
         };
 
