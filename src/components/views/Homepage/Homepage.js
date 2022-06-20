@@ -3,15 +3,13 @@ import React from 'react';
 import styles from './Homepage.module.scss';
 import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
-import StaticDeals from '../../features/StaticDeals/StaticDeals';
-import Feedback from '../../features/Feedback/Feedback';
+import Promotions from '../../features/Promotions/Promotions';
 
 const Homepage = () => (
   <div className={styles.root}>
+    <Promotions />
     <FeatureBoxes />
-    <StaticDeals />
     <NewFurniture />
-    <Feedback />
   </div>
 );
 
