@@ -2,6 +2,7 @@
 
 .root {
   color: $text-color;
+  display: inline-flex;
 
   .category {
     border: 1px solid $form-border-color;
