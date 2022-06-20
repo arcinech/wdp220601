@@ -4,16 +4,11 @@
   background-color: $bg-color-light;
   border: 1px solid $productBox-border-color;
   margin-bottom: 2rem;
-
-  .buttons,
-  .buttonsHot,
-  .timers {
+  .buttons {
     opacity: 0;
   }
   &:hover {
-    .buttons,
-    .buttonsHot,
-    .timers {
+    .buttons {
       opacity: 1;
     }
     .priceButton {
@@ -44,39 +39,9 @@
       padding: 30px 15px 5px 15px;
     }
 
-    .timers {
-      position: absolute;
-      top: 150px;
-      left: 60px;
-      .timer {
-        display: flex;
-        flex-wrap: wrap;
-        width: 70px;
-        height: 70px;
-        background-color: $bg-color-dark;
-        color: $text-color-light;
-        border-radius: 50%;
-        justify-content: center;
-        align-items: center;
-        opacity: 0.95;
-        .top {
-          margin-top: 10px;
-        }
-        .bottom {
-          margin-bottom: 10px;
-        }
-      }
-    }
-
     .buttons {
       display: flex;
       justify-content: space-between;
-    }
-    .buttonsHot {
-      position: absolute;
-      display: flex;
-      left: 8em;
-      top: 4em;
     }
   }
 
@@ -128,9 +93,10 @@
 
     & > p {
       margin: 0 6px;
-      color: #a5a5a5;
+      color:#A5A5A5;
       text-decoration-line: line-through;
-      text-decoration-color: #2a2a2a;
+      text-decoration-color: #2A2A2A;
     }
   }
+
 }

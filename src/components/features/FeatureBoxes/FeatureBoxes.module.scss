@@ -2,4 +2,23 @@
 
 .root {
   padding: 5rem 0;
+
+  .rwd {
+    [class^="col-"] {
+
+      &,
+      &>a {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    [class^="col-"]>a {
+
+      &,
+      &>div {
+        flex-grow: 1;
+      }
+    }
+  }
 }
