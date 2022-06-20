@@ -10,7 +10,7 @@ const MenuBar = ({ children }) => (
   <div className={styles.root}>
     <Navbar collapseOnSelect expand='sm'>
       <div className='container flex-wrap'>
-        <div className='col col-xl-5 order-sm-2 order-lg-1'>
+        <div className={`order-sm-2 order-lg-1 ${styles.productSearch}`}>
           <ProductSearch />
         </div>
         <div className='order-sm-1 order-lg-2'>
