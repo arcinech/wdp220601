@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './StarRating.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,10 @@ const StarRating = props => {
   const [ratingActive, setRatingActive] = useState(props.ratingActive || false);
   const [starHover, setStarHover] = useState(null);
 
+  useEffect(() => {
+    props.action({ userRating: userRating, ratingActive: ratingActive });
+  }, [userRating, ratingActive]);
+
   return (
     <div>
       {[...Array(5)].map((star, i) => {
@@ -19,30 +23,19 @@ const StarRating = props => {
         const handleSubmit = () => {
           if (userRating === starRatingValue) {
             setUserRating(null);
-            setRatingActive(ratingActive);
+            setRatingActive(false);
+          } else {
+            setUserRating(starRatingValue);
+            setRatingActive(true);
           }
-          // if (starRatingValue !== userRating) {
-          //   setUserRating(starRatingValue);
-          //   setRatingActive(true);
-          // }
-          // setUserRating(starRatingValue);
-          console.log('ratingActive ' + ratingActive);
-          console.log('starRatingValue ' + starRatingValue);
-          console.log('userRating ' + userRating);
-          props.action({ userRating: starRatingValue, ratingActive: ratingActive });
         };
 
         const handleMouseOnStar = () => {
-          // if (ratingActive) {
-          //   setRatingActive(true);
-          // }
+          setRatingActive(true);
           setStarHover(starRatingValue);
         };
 
         const handleMouseLeaveStar = () => {
-          // if (ratingActive) {
-          //   setRatingActive(false);
-          // }
           setStarHover(null);
         };
 
