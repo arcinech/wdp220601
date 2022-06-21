@@ -1,0 +1,109 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  border: 1px solid $form-border-color;
+  display: inline-flex;
+  height: 45px;
+  color: $text-color;
+
+  .category {
+    border-right: 1px solid $form-border-color;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .icon:first-child {
+      color: $primary;
+      position: absolute;
+      left: 10px;
+      z-index: 0;
+    }
+
+    .icon:last-child {
+      position: absolute;
+      right: 10px;
+      z-index: 0;
+    }
+
+    ul {
+      list-style: none;
+      -webkit-appearance: none;
+      padding: 5px 30px 5px 35px;
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+    }
+    ul > li {
+      margin: 0;
+      padding: 0;
+      float: left;
+      position: relative;
+      height: 30px;
+    }
+    ul > li > a {
+      padding: 10px;
+      color: $text-color;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    ul > li > a:hover,
+    ul > li:hover > a {
+      font-weight: 800;
+    }
+    ul > li ul {
+      padding: 0;
+      position: absolute;
+      display: none;
+      left: 0px;
+      top: 30px;
+      width: 200px;
+      text-align: left;
+      background-color: #fcfcfc;
+      border: 1px solid #ccc;
+    }
+    ul li:hover > ul {
+      display: block;
+    }
+    ul > li ul li {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      float: none;
+      height: auto;
+    }
+    ul > li ul li a {
+      padding: 10px 20px;
+      display: block;
+      color: $text-color;
+    }
+    ul > li ul li a:hover,
+    ul > li ul li:hover > a {
+      color: #ffffff;
+      background-color: $primary;
+    }
+  }
+
+  .searchField {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input {
+      border: 0;
+      padding-left: 10px;
+      font-size: 14px;
+      outline: none;
+
+      &::placeholder {
+        color: $text-color;
+      }
+    }
+
+    button {
+      border: 0;
+      background-color: transparent;
+      outline: none;
+    }
+  }
+}
