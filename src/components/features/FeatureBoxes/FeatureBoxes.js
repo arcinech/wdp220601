@@ -13,7 +13,7 @@ import FeatureBox from '../../common/FeatureBox/FeatureBox';
 
 const FeatureBoxes = () => (
   <div>
-    <div className='container'>
+    <div className={`${styles.root} container`}>
       <div className={`row ${styles.rwd}`}>
         <div className='col-6 col-lg'>
           <a href='#'>
