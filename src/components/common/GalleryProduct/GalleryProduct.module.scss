@@ -102,6 +102,18 @@
         flex-direction: column;
         color: white;
 
+        .newPrice {
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .oldPrice {
+          margin: 0 6px;
+          text-decoration-line: line-through;
+          font-size: 16px;
+          font-weight:400;
+        }
+
         &:before {
           width: 105px;
           height: 105px;

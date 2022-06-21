@@ -73,8 +73,10 @@ const GalleryProduct = ({ id }) => {
           <h5>{product.name}</h5>
           <StarRating {...product} />
           <div className={styles.price}>
-            <div className={styles.oldPrice}>$ 200</div>
-            <div className={styles.newPrice}>$ 150</div>
+            <div className={styles.newPrice}>$ {product.price}.00</div>
+            {product.oldPrice && (
+              <div className={styles.oldPrice}>$ {product.oldPrice}.00</div>
+            )}
           </div>
         </div>
       </div>
