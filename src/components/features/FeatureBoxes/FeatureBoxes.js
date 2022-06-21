@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './FeatureBoxes.module.scss';
 
 import {
   faTruck,
@@ -8,14 +9,13 @@ import {
   faBullhorn,
 } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './FeatureBoxes.module.scss';
 import FeatureBox from '../../common/FeatureBox/FeatureBox';
 
 const FeatureBoxes = () => (
-  <div className={styles.root}>
-    <div className='container'>
-      <div className='row'>
-        <div className='col-12 col-sm-6 col-lg'>
+  <div>
+    <div className={`${styles.root} container`}>
+      <div className={`row ${styles.rwd}`}>
+        <div className='col-6 col-lg'>
           <a href='#'>
             <FeatureBox icon={faTruck} active>
               <h5>Free shipping</h5>
@@ -23,7 +23,7 @@ const FeatureBoxes = () => (
             </FeatureBox>
           </a>
         </div>
-        <div className='col-12 col-sm-6 col-lg'>
+        <div className='col-6 col-lg'>
           <a href='#'>
             <FeatureBox icon={faHeadphones}>
               <h5>24/7 customer</h5>
@@ -31,7 +31,7 @@ const FeatureBoxes = () => (
             </FeatureBox>
           </a>
         </div>
-        <div className='col-12 col-sm-6 col-lg'>
+        <div className='col-6 col-lg'>
           <a href='#'>
             <FeatureBox icon={faReplyAll}>
               <h5>Money back</h5>
@@ -39,7 +39,7 @@ const FeatureBoxes = () => (
             </FeatureBox>
           </a>
         </div>
-        <div className='col-12 col-sm-6 col-lg'>
+        <div className='col-6 col-lg'>
           <a href='#'>
             <FeatureBox icon={faBullhorn}>
               <h5>Member discount</h5>

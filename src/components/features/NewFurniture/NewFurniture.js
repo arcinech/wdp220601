@@ -54,10 +54,10 @@ const NewFurniture = () => {
     <div className={`${styles.root} container`}>
       <div className={styles.panelBar}>
         <div className='row no-gutters align-items-end'>
-          <div className={'col-auto ' + styles.heading}>
+          <div className={styles.heading}>
             <h3>New furniture</h3>
           </div>
-          <div className={'col ' + styles.menu}>
+          <div className={'col-12 col-sm-6 col-md ' + styles.menu}>
             <ul>
               {categories.map(item => (
                 <li key={item.id}>
@@ -98,7 +98,7 @@ const NewFurniture = () => {
         className='mySwiper'
       >
         {categoryProducts.map(item => (
-          <SwiperSlide key={item.id}>
+          <SwiperSlide className='col-5 col-md-3 col-xl-2' key={item.id}>
             <ProductBox {...item} />
           </SwiperSlide>
         ))}
