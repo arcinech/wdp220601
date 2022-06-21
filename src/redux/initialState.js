@@ -369,6 +369,12 @@ const initialState = {
       subname: 'SAVE UP 45% OF FURNITURE',
       image: '/images/deal-3.jpeg',
     },
+    {
+      id: 'deal-4',
+      name: 'Bedroom Bed',
+      value: '$50.80',
+      image: '/images/deal-4.jpeg',
+    },
   ],
   feedbacks: [
     {
