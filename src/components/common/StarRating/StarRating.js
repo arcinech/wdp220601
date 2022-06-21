@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './StarRating.module.scss';
+import { setProductRating } from '../../../redux/productsRedux';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
 const StarRating = props => {
+  const dispatch = useDispatch();
   const [starRating] = useState(props.stars || null);
   const [userRating, setUserRating] = useState(props.userRating || null);
   const [ratingActive, setRatingActive] = useState(props.ratingActive || false);
   const [starHover, setStarHover] = useState(null);
 
   useEffect(() => {
-    props.action({ userRating: userRating, ratingActive: ratingActive });
+    dispatch(
+      setProductRating({
+        id: props.id,
+        userRating: userRating,
+        ratingActive: ratingActive,
+      })
+    );
   }, [userRating, ratingActive]);
 
   return (

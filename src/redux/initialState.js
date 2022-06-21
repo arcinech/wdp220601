@@ -284,7 +284,6 @@ const initialState = {
       newFurniture: true,
       compare: false,
       favorite: true,
-
     },
     {
       id: 'aenean-ru-bristique-23',
@@ -369,7 +368,8 @@ const initialState = {
       name: 'SPECIAL COLLECTION',
       subname: 'SAVE UP 45% OF FURNITURE',
       image: '/images/deal-3.jpeg',
-  },
+    },
+  ],
   feedbacks: [
     {
       id: 1,
