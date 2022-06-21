@@ -6,13 +6,25 @@ import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-ico
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import ProductImage from '../ProductImage/ProductImage';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setFavorite, setProductRating } from '../../../redux/productsRedux';
 import StarRating from '../StarRating/StarRating';
+import { toggleCompare, setFavorite } from '../../../redux/productsRedux';
 
 const ProductBox = ({ ...props }) => {
   const dispatch = useDispatch();
-  const [isFavorite, setIsFavorite] = useState(props.favorite || false);
+
+  const compareNumber = useSelector(state =>
+    state.products.filter(item => item.compare === true)
+  );
+
+  const handleClick = e => {
+    e.preventDefault();
+    if (compareNumber.length < 4) {
+      dispatch(toggleCompare(id));
+    }
+  };
+  const [isFavorite, setIsFavorite] = useState(favorite || false);
 
   const changeFavorite = e => {
     e.preventDefault();
@@ -23,7 +35,6 @@ const ProductBox = ({ ...props }) => {
   const changeStarRating = starRating => {
     dispatch(setProductRating({ id: props.id, ...starRating }));
   };
-
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -52,7 +63,10 @@ const ProductBox = ({ ...props }) => {
           <Button variant={isFavorite ? 'active' : 'outline'} onClick={changeFavorite}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant={props.compare ? 'active' : 'outline'}>
+          <Button
+            variant={compare ? 'active' : 'outline'}
+            onClick={e => handleClick(e)}
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>

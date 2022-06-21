@@ -13,8 +13,8 @@ import FeatureBox from '../../common/FeatureBox/FeatureBox';
 const FeatureBoxes = () => (
   <div>
     <div className='container'>
-      <div className='row'>
-        <div className='col-12 col-sm-6 col-lg'>
+      <div className={`row ${styles.rwd}`}>
+        <div className='col-6 col-lg'>
           <a href='#'>
             <FeatureBox icon={faTruck} active>
               <h5>Free shipping</h5>
@@ -22,7 +22,7 @@ const FeatureBoxes = () => (
             </FeatureBox>
           </a>
         </div>
-        <div className='col-12 col-sm-6 col-lg'>
+        <div className='col-6 col-lg'>
           <a href='#'>
             <FeatureBox icon={faHeadphones}>
               <h5>24/7 customer</h5>
@@ -30,7 +30,7 @@ const FeatureBoxes = () => (
             </FeatureBox>
           </a>
         </div>
-        <div className='col-12 col-sm-6 col-lg'>
+        <div className='col-6 col-lg'>
           <a href='#'>
             <FeatureBox icon={faReplyAll}>
               <h5>Money back</h5>
@@ -38,7 +38,7 @@ const FeatureBoxes = () => (
             </FeatureBox>
           </a>
         </div>
-        <div className='col-12 col-sm-6 col-lg'>
+        <div className='col-6 col-lg'>
           <a href='#'>
             <FeatureBox icon={faBullhorn}>
               <h5>Member discount</h5>

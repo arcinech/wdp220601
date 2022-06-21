@@ -44,7 +44,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -57,7 +57,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -69,6 +69,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -78,6 +80,8 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -89,6 +93,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -100,6 +106,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-9',
@@ -111,6 +119,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -120,6 +130,8 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-11',
@@ -131,6 +143,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-12',
@@ -142,6 +156,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-13',
@@ -151,6 +167,8 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-14',
@@ -160,6 +178,8 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-15',
@@ -171,6 +191,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-16',
@@ -182,6 +204,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-17',
@@ -193,6 +217,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-18',
@@ -204,6 +230,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-19',
@@ -215,6 +243,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-20',
@@ -226,6 +256,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-21',
@@ -237,6 +269,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-22',
@@ -248,7 +282,9 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
       favorite: true,
+
     },
     {
       id: 'aenean-ru-bristique-23',
@@ -260,6 +296,8 @@ const initialState = {
       ratingActive: false,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-24',
@@ -271,6 +309,8 @@ const initialState = {
       ratingActive: true,
       promo: 'sale',
       newFurniture: true,
+      compare: false,
+      favorite: false,
     },
     {
       id: 'aenean-ru-bristique-25',
@@ -309,6 +349,47 @@ const initialState = {
   cart: {
     products: [],
   },
+  deals: [
+    {
+      id: 'deal-1',
+      name: 'GUEST ROOM',
+      subname: 'SOFA',
+      value: '-20%',
+      image: '/images/deal-1.jpeg',
+    },
+    {
+      id: 'deal-2',
+      name: 'OFFICE CHAIR',
+      subname: 'COLLECTION',
+      value: '$200.00',
+      image: '/images/deal-2.jpeg',
+    },
+    {
+      id: 'deal-3',
+      name: 'SPECIAL COLLECTION',
+      subname: 'SAVE UP 45% OF FURNITURE',
+      image: '/images/deal-3.jpeg',
+  },
+  feedbacks: [
+    {
+      id: 1,
+      name: 'John Deere',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
+    },
+    {
+      id: 2,
+      name: 'Alex Kingstone',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
+    },
+    {
+      id: 3,
+      name: 'Cecil Stedman',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
+    },
+  ],
 };
 
 export default initialState;
