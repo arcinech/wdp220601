@@ -1,6 +1,8 @@
 /* selectors */
 export const getAllProducts = state => state.products;
 export const getCountProducts = ({ products }) => products.length;
+export const getProductById = ({ products }, productId) =>
+  products.find(product => product.id === productId);
 
 export const getNewProducts = ({ products }) =>
   products.filter(item => item.newFurniture === true);
@@ -11,21 +13,29 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
 const SET_FAVORITE = createActionName('SET_FAVORITE');
+
 const TOGGLE_COMPARE = createActionName('TOGGLE_COMPARE');
 const REMOVE_COMPARE = createActionName('REMOVE_COMPARE');
+const SET_PRODUCT_RATING = createActionName('SET_PRODUCT_RATING');
 
 /* action creators */
 export const setFavorite = payload => ({ type: SET_FAVORITE, payload });
 export const toggleCompare = payload => ({ payload, type: TOGGLE_COMPARE });
+export const setProductRating = payload => ({ type: SET_PRODUCT_RATING, payload });
 
 export const removeCompare = payload => {
   return { payload, type: REMOVE_COMPARE };
 };
 
 /* reducer */
-export default function reducer(statePart = [], action = {}) {
+
+const productsReducer = function(statePart = [], action) {
   switch (action.type) {
-    case 'SET_FAVORITE':
+    case SET_FAVORITE:
+      return statePart.map(product =>
+        product.id === action.payload.id ? { ...product, ...action.payload } : product
+      );
+    case SET_PRODUCT_RATING:
       return statePart.map(product =>
         product.id === action.payload.id ? { ...product, ...action.payload } : product
       );
@@ -50,4 +60,6 @@ export default function reducer(statePart = [], action = {}) {
     default:
       return statePart;
   }
-}
+};
+
+export default productsReducer;

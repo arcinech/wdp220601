@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './FeatureBoxes.module.scss';
 
 import {
   faTruck,
@@ -8,12 +9,11 @@ import {
   faBullhorn,
 } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './FeatureBoxes.module.scss';
 import FeatureBox from '../../common/FeatureBox/FeatureBox';
 
 const FeatureBoxes = () => (
-  <div className={styles.root}>
-    <div className='container'>
+  <div>
+    <div className={`${styles.root} container`}>
       <div className={`row ${styles.rwd}`}>
         <div className='col-6 col-lg'>
           <a href='#'>

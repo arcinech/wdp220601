@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faStar,
-  faExchangeAlt,
-  faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import ProductImage from '../ProductImage/ProductImage';
-import { toggleCompare, setFavorite } from '../../../redux/productsRedux';
 import { useDispatch, useSelector } from 'react-redux';
+import StarRating from '../StarRating/StarRating';
+import { toggleCompare, setFavorite } from '../../../redux/productsRedux';
 
-const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare }) => {
+const ProductBox = ({ ...props }) => {
   const dispatch = useDispatch();
+
   const compareNumber = useSelector(state =>
     state.products.filter(item => item.compare === true)
   );
@@ -23,21 +20,22 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
   const handleClick = e => {
     e.preventDefault();
     if (compareNumber.length < 4) {
-      dispatch(toggleCompare(id));
+      dispatch(toggleCompare({ id: props.id }));
     }
   };
-  const [isFavorite, setIsFavorite] = useState(favorite || false);
+  const [isFavorite, setIsFavorite] = useState(props.favorite || false);
 
   const changeFavorite = e => {
     e.preventDefault();
     setIsFavorite(!isFavorite);
-    dispatch(setFavorite({ id, favorite: isFavorite }));
+    dispatch(setFavorite({ id: props.id, favorite: isFavorite }));
   };
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
-        <ProductImage id={id} />
-        {promo && <div className={styles.sale}>{promo}</div>}
+        <ProductImage id={props.id} />
+        {props.promo && <div className={styles.sale}>{props.promo}</div>}
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
           <Button variant='small'>
@@ -46,18 +44,13 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
         </div>
       </div>
       <div className={styles.content}>
-        <h5>{name}</h5>
-        <div className={styles.stars}>
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              {i <= stars ? (
-                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-              )}
-            </a>
-          ))}
-        </div>
+        <h5>{props.name}</h5>
+        <StarRating
+          id={props.id}
+          stars={props.stars}
+          userRating={props.userRating}
+          ratingActive={props.ratingActive}
+        />
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
@@ -66,17 +59,17 @@ const ProductBox = ({ name, price, promo, stars, oldPrice, id, favorite, compare
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button
-            variant={compare ? 'active' : 'outline'}
+            variant={props.compare ? 'active' : 'outline'}
             onClick={e => handleClick(e)}
           >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
-        <div className={oldPrice ? styles.priceBox : ''}>
-          {oldPrice && <p>$ {oldPrice}</p>}
+        <div className={props.oldPrice ? styles.priceBox : ''}>
+          {props.oldPrice && <p>$ {props.oldPrice}</p>}
           <div className={styles.price}>
             <Button noHover variant='small' className={styles.priceButton}>
-              $ {price}
+              $ {props.price}
             </Button>
           </div>
         </div>
@@ -92,6 +85,8 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  userRating: PropTypes.number,
+  ratingActive: PropTypes.bool,
   oldPrice: PropTypes.number,
   favorite: PropTypes.bool,
   compare: PropTypes.bool,
