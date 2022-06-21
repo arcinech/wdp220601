@@ -4,43 +4,33 @@ import PropTypes from 'prop-types';
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 
 import styles from './MenuBar.module.scss';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const MenuBar = ({ children }) => (
   <div className={styles.root}>
-    <div className='container'>
-      <div className='row align-items-center'>
-        <div className='col'>
+    <Navbar collapseOnSelect expand='sm'>
+      <div className='container flex-wrap'>
+        <div className={`order-sm-2 order-lg-1 ${styles.productSearch}`}>
           <ProductSearch />
         </div>
-        <div className={'col-auto ' + styles.menu}>
-          <ul>
-            <li>
-              <a href='#' className={styles.active}>
+        <div className='order-sm-1 order-lg-2'>
+          <Navbar.Toggle aria-controls='responsive-navbar' />
+          <Navbar.Collapse id='responsive-navbar'>
+            <Nav className={`'col-auto' + ${styles.menu}`}>
+              <Nav.Link href='#' className={styles.active}>
                 Home
-              </a>
-            </li>
-            <li>
-              <a href='#'>Furniture</a>
-            </li>
-            <li>
-              <a href='#'>Chair</a>
-            </li>
-            <li>
-              <a href='#'>Table</a>
-            </li>
-            <li>
-              <a href='#'>Sofa</a>
-            </li>
-            <li>
-              <a href='#'>Bedroom</a>
-            </li>
-            <li>
-              <a href='#'>Blog</a>
-            </li>
-          </ul>
+              </Nav.Link>
+              <Nav.Link href='#'>Furniture</Nav.Link>
+              <Nav.Link href='#'>Chair</Nav.Link>
+              <Nav.Link href='#'>Table</Nav.Link>
+              <Nav.Link href='#'>Sofa</Nav.Link>
+              <Nav.Link href='#'>Bedroom</Nav.Link>
+              <Nav.Link href='#'>Blog</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
         </div>
       </div>
-    </div>
+    </Navbar>
   </div>
 );
 
