@@ -1,0 +1,53 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: 10px;
+  display: flex;
+  border: 1px solid $border-color-mediumLight;
+
+  .slide {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+  }
+  .slideItem {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    margin: 0 3px;
+  }
+
+  img {
+    height: 70px;
+  }
+
+  .overlay{
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .leftarrow, .rightarrow {
+    display: flex;
+    height: 70px;
+    width: 33px;
+    background-color: $bg-slider-arrow;
+    color: white;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
