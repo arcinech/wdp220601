@@ -1,4 +1,5 @@
 import React from 'react';
+import useWindowSize from '../../common/useWindowSize/useWindowSize';
 import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
@@ -17,6 +18,7 @@ import '../../../../node_modules/swiper/swiper.scss';
 import '../../../../node_modules/swiper/modules/pagination/pagination.scss';
 
 const NewFurniture = () => {
+  const width = useWindowSize();
   const [prevButton, setPrevButton] = useState(false);
   const [nextButton, setNextButtone] = useState(false);
   const [activeCategory, setActiveCategory] = useState('bed');
@@ -91,6 +93,24 @@ const NewFurniture = () => {
         grid={{
           rows: 2,
           fill: 'row',
+        }}
+        width={width}
+        breakpoints={{
+          // when window width is >= 0px
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 25,
+          },
+          // when window width is >= 992px
+          992: {
+            slidesPerView: 8,
+            spaceBetween: 30,
+          },
         }}
         slidespercolumnfill='row'
         spaceBetween={30}
