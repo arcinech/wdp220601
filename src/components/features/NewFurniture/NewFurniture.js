@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useWindowSize from '../../common/useWindowSize/useWindowSize';
 import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { getAllProducts } from '../../../redux/productsRedux';
 import { getAllCategories } from '../../../redux/categoriesRedux';
 import { useSelector } from 'react-redux';
@@ -33,7 +33,7 @@ const NewFurniture = () => {
     } else {
       setGalleryRows(2);
     }
-  }, [galleryRows, newFurnitureSize]);
+  }, [newFurnitureSize]);
 
   const handlePrev = useCallback(e => {
     if (!sliderRef.current) return;
@@ -107,14 +107,26 @@ const NewFurniture = () => {
           0: {
             slidesPerView: 1,
             spaceBetween: 20,
+            grid: {
+              rows: 1,
+              fill: 'row',
+            },
           },
           768: {
             slidesPerView: 2,
             spaceBetween: 20,
+            grid: {
+              rows: 2,
+              fill: 'row',
+            },
           },
           992: {
             slidesPerView: 4,
             spaceBetween: 30,
+            grid: {
+              rows: 2,
+              fill: 'row',
+            },
           },
         }}
         slidespercolumnfill='row'
