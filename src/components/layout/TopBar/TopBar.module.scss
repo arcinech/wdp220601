@@ -40,3 +40,11 @@
     }
   }
 }
+
+@media (max-width: 780px) {
+  .topMenu ul li {
+    .text {
+      font-size: 0;
+    }
+  }
+}

@@ -26,6 +26,8 @@
   }
 
   .cart {
+    display: flex;
+    justify-content: center;
     .cartBox {
       display: inline-block;
       position: relative;
@@ -116,5 +118,21 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 780px) {
+  .phoneNumber {
+    p {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .number {
+      font-size: 14px;
+    }
+  }
+  .cart {
+    top: -10px;
   }
 }

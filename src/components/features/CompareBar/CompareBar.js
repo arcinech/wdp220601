@@ -3,19 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../common/Button/Button';
 import ProductImage from '../../common/ProductImage/ProductImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './CompareBar.module.scss';
 import { removeCompare } from '../../../redux/productsRedux';
 
 const CompareBar = () => {
-  const dispatche = useDispatch();
+  const dispatch = useDispatch();
   const compareProducts = useSelector(state =>
     state.products.filter(item => item.compare === true)
   );
   const handleClick = (e, id) => {
     e.preventDefault();
-    dispatche(removeCompare(id));
+    dispatch(removeCompare(id));
   };
   return (
     <nav className={styles.navbar}>
@@ -32,6 +32,22 @@ const CompareBar = () => {
                 </Button>
               </div>
               <ProductImage id={item.id} />
+              <div className='row'>
+                <div className={styles.name}>{item.name}</div>
+                {item.favorite && (
+                  <div className={styles.favorite}>
+                    <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+                  </div>
+                )}
+                <div className={item.oldPrice ? styles.priceBox : ''}>
+                  {item.oldPrice && <p>$ {item.oldPrice}</p>}
+                  <div className={styles.price}>
+                    <Button noHover variant='small'>
+                      $ {item.price}
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))}

@@ -18,6 +18,22 @@
   }
 }
 
+.white {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: $bg-color-light;
+  color: $text-color;
+  font-size: 13px;
+  line-height: 22px;
+  border-radius: 3px;
+  padding: 10px;
+
+  &:hover {
+    text-decoration: none;
+    color: $text-color;
+  }
+}
+
 .small {
   @extend .main;
   font-size: 13px;

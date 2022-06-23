@@ -6,8 +6,11 @@ import Brands from '../../features/Brands/Brands';
 import StaticDeals from '../../features/StaticDeals/StaticDeals';
 import Feedback from '../../features/Feedback/Feedback';
 import FurnitureGallery from '../../features/FurnitureGallery/FurnitureGallery';
+import Promotions from '../../features/Promotions/Promotions';
+
 const Homepage = () => (
   <div>
+    <Promotions />
     <FeatureBoxes />
     <StaticDeals />
     <NewFurniture />
