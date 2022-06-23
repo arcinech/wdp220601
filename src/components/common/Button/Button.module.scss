@@ -58,6 +58,16 @@
 
 .active {
   @extend .outline;
-  color: #ffffff;
-  background-color: $primary;
-}
+    color: #ffffff;
+    background-color: $hover-color;
+  }
+
+  .shopButton {
+    @extend .main;
+    background-color: $gallery-deal-green;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    width: max-content;
+    padding: 20px 30px;
+  }

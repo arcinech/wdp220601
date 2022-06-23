@@ -19,6 +19,7 @@ const initialState = {
       newFurniture: true,
       favorite: false,
       compare: false,
+      oldPrice: 45,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -368,6 +369,12 @@ const initialState = {
       name: 'SPECIAL COLLECTION',
       subname: 'SAVE UP 45% OF FURNITURE',
       image: '/images/deal-3.jpeg',
+    },
+    {
+      id: 'deal-4',
+      name: 'Bedroom Bed',
+      value: '$50.80',
+      image: '/images/deal-4.jpeg',
     },
   ],
   feedbacks: [
