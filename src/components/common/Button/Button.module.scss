@@ -13,7 +13,7 @@
 
   &:not(.noHover):hover {
     color: $text-color-light !important;
-    background-color: $primary;
+    background-color: $hover-color;
     text-decoration: none;
   }
 }
@@ -35,7 +35,7 @@
   line-height: 22px;
 
   &:not(.noHover):hover {
-    background-color: $primary;
+    background-color: $hover-color;
     color: #ffffff;
   }
 }
