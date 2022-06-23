@@ -397,6 +397,8 @@ const initialState = {
     { id: 4, name: 'Brand4' },
     { id: 5, name: 'Brand5' },
     { id: 6, name: 'Brand6' },
+    { id: 7, name: 'Brand7' },
+    { id: 8, name: 'Brand8' },
   ],
 };
 
