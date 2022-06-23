@@ -5,8 +5,12 @@ import styles from './Brands.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { getAllBrands } from '../../../redux/brandsRedux';
+import { useSelector } from 'react-redux/es/exports';
 
 const Brands = () => {
+  const brands = useSelector(getAllBrands);
+
   return (
     <div className={styles.root}>
       <div className='container'>
@@ -15,24 +19,11 @@ const Brands = () => {
           <Button variant='dark'>
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>
-          <div className={`${styles.photo}`}>
-            <img src={`/images/Brand-1.jpg`} alt='' />
-          </div>
-          <div className={`${styles.photo}`}>
-            <img src={`/images/Brand-2.jpg`} alt='' />
-          </div>
-          <div className={` ${styles.photo}`}>
-            <img src={`/images/Brand-3.jpg`} alt='' />
-          </div>
-          <div className={` ${styles.photo}`}>
-            <img src={`/images/Brand-4.jpg`} alt='' />
-          </div>
-          <div className={` ${styles.photo}`}>
-            <img src={`/images/Brand-5.jpg`} alt='' />
-          </div>
-          <div className={` ${styles.photo}`}>
-            <img src={`/images/Brand-6.jpg`} alt='' />
-          </div>
+          {brands.map(brand => (
+            <div key={brand.id} className={`${styles.photo}`}>
+              <img src={`/images/Brand-${brand.id}.jpg`} alt='' />
+            </div>
+          ))}
           <Button variant='dark'>
             <FontAwesomeIcon icon={faArrowRight} />
           </Button>
