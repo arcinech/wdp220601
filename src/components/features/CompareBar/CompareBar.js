@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../common/Button/Button';
 import ProductImage from '../../common/ProductImage/ProductImage';
@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBan, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './CompareBar.module.scss';
-import { removeCompare, setFavorite } from '../../../redux/productsRedux';
+import { removeCompare } from '../../../redux/productsRedux';
 
 const CompareBar = () => {
   const dispatch = useDispatch();
@@ -16,13 +16,6 @@ const CompareBar = () => {
   const handleClick = (e, id) => {
     e.preventDefault();
     dispatch(removeCompare(id));
-  };
-  const [isFavorite, setIsFavorite] = useState(compareProducts.favorite || false);
-
-  const changeFavorite = e => {
-    e.preventDefault();
-    setIsFavorite(!isFavorite);
-    dispatch(setFavorite({ id: compareProducts.id, favorite: isFavorite }));
   };
   return (
     <nav className={styles.navbar}>
@@ -41,14 +34,11 @@ const CompareBar = () => {
               <ProductImage id={item.id} />
               <div className='row'>
                 <div className={styles.name}>{item.name}</div>
-                <div className={styles.favorite}>
-                  <Button
-                    variant={isFavorite ? 'active' : 'outline'}
-                    onClick={changeFavorite}
-                  >
+                {item.favorite && (
+                  <div className={styles.favorite}>
                     <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-                  </Button>
-                </div>
+                  </div>
+                )}
                 <div className={item.oldPrice ? styles.priceBox : ''}>
                   {item.oldPrice && <p>$ {item.oldPrice}</p>}
                   <div className={styles.price}>
