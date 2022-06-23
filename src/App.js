@@ -12,7 +12,7 @@ const App = () => (
   <MainLayout>
     <CompareBar />
     <Routes>
-      <Route exact path='/' element={<Homepage />} />
+      <Route path='/' element={<Homepage />} />
       <Route exact path='/shop/:categoryId' element={<ProductList />} />
       <Route exact path='/product/:productId' element={<ProductPage />} />
     </Routes>
