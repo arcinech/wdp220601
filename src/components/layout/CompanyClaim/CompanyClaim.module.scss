@@ -26,6 +26,8 @@
   }
 
   .cart {
+    display: flex;
+    justify-content: center;
     .cartBox {
       display: inline-block;
       position: relative;
