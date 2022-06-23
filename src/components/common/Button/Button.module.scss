@@ -43,7 +43,7 @@
 .active {
   @extend .outline;
     color: #ffffff;
-    background-color: $primary;
+    background-color: $hover-color;
   }
 
   .shopButton {

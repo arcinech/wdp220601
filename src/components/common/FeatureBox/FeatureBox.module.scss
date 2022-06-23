@@ -68,7 +68,7 @@
       color: $text-color;
 
       &::after {
-        background-color: $primary;
+        background-color: $hover-color;
         border-color: $primary;
       }
     }
