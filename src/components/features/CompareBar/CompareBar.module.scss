@@ -18,10 +18,40 @@
   position: absolute;
 }
 
+.price {
+  margin-left: 19px;
+}
+
 .image {
   padding: 10px;
   margin: 70px;
   box-shadow: 2px 3.464px 6px $shadow-color;
+  .name {
+    font-weight: 500;
+    padding-left: 10px;
+  }
+  .favorite {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .actions {
+    padding: 15px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .priceBox {
+    display: inline-flex;
+    align-items: center;
+
+    & > p {
+      margin: 0 6px;
+      color: #a5a5a5;
+      text-decoration-line: line-through;
+      text-decoration-color: #2a2a2a;
+    }
+  }
 }
 
 .button {
