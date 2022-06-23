@@ -390,6 +390,21 @@ const initialState = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
     },
   ],
+  hotdeals: [
+    {
+      id: 'aenean-ru-bristique-2',
+      dotId: 2,
+      name: 'Aenean Ru Bristique 2',
+      category: 'chair',
+      price: 30,
+      oldPrice: 45,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      favorite: true,
+      compare: false,
+    },
+  ],
 };
 
 export default initialState;
