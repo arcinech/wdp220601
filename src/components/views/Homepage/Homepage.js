@@ -5,9 +5,11 @@ import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Brands from '../../features/Brands/Brands';
 import StaticDeals from '../../features/StaticDeals/StaticDeals';
 import Feedback from '../../features/Feedback/Feedback';
+import Promotions from '../../features/Promotions/Promotions';
 
 const Homepage = () => (
   <div>
+    <Promotions />
     <FeatureBoxes />
     <StaticDeals />
     <NewFurniture />
