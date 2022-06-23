@@ -87,10 +87,10 @@ const NewFurniture = () => {
           <div className={'col-auto ' + styles.dots}>
             <ul>
               <li>
-                <a onClick={handlePrev} className={prevButton && styles.active} />
+                <a onClick={handlePrev} className={clsx(prevButton && styles.active)} />
               </li>
               <li>
-                <a onClick={handleNext} className={nextButton && styles.active} />
+                <a onClick={handleNext} className={clsx(nextButton && styles.active)} />
               </li>
             </ul>
           </div>
