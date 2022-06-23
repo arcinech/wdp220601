@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './styles/global.scss';
 import MainLayout from './components/layout/MainLayout/MainLayout';
 import Homepage from './components/views/Homepage/Homepage';
@@ -11,11 +11,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => (
   <MainLayout>
     <CompareBar />
-    <Switch>
-      <Route exact path={'/'} component={Homepage} />
-      <Route exact path={'/shop/:categoryId'} component={ProductList} />
-      <Route exact path={'/product/:productId'} component={ProductPage} />
-    </Switch>
+    <Routes>
+      <Route exact path='/' element={<Homepage />} />
+      <Route exact path='/shop/:categoryId' element={<ProductList />} />
+      <Route exact path='/product/:productId' element={<ProductPage />} />
+    </Routes>
   </MainLayout>
 );
 
