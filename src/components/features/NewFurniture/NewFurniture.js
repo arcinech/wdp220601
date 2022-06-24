@@ -23,6 +23,8 @@ const NewFurniture = () => {
   const [prevButton, setPrevButton] = useState(false);
   const [nextButton, setNextButtone] = useState(false);
   const [activeCategory, setActiveCategory] = useState('bed');
+  const [oldCategory, setOldCategory] = useState(activeCategory);
+  const [fadeProp, setFadeProp] = useState('fade-in');
   const categories = useSelector(state => getAllCategories(state));
   const products = useSelector(state => getAllProducts(state));
   const sliderRef = useRef(null);
@@ -34,6 +36,20 @@ const NewFurniture = () => {
       setGalleryRows(2);
     }
   }, [newFurnitureSize]);
+
+  useEffect(() => {
+    if (oldCategory !== activeCategory) {
+      const timeout = setInterval(() => {
+        if (fadeProp === 'fade-in') {
+          setFadeProp('fade-out');
+        } else {
+          setFadeProp('fade-in');
+        }
+        setOldCategory(activeCategory);
+      }, 1000);
+      return () => clearInterval(timeout);
+    }
+  }, [activeCategory]);
 
   const handlePrev = useCallback(e => {
     if (!sliderRef.current) return;
@@ -56,10 +72,11 @@ const NewFurniture = () => {
   }, []);
 
   const handleCategoryChange = newCategory => {
+    setFadeProp('fade-out');
     setActiveCategory(newCategory);
   };
 
-  const categoryProducts = products.filter(item => item.category === activeCategory);
+  const categoryProducts = products.filter(item => item.category === oldCategory);
 
   return (
     <div className={`${styles.root} container`}>
@@ -96,50 +113,52 @@ const NewFurniture = () => {
           </div>
         </div>
       </div>
-      <Swiper
-        ref={sliderRef}
-        slidesPerView={8}
-        grid={{
-          rows: galleryRows,
-          fill: 'row',
-        }}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            grid: {
-              rows: 1,
-              fill: 'row',
+      <div className={fadeProp === 'fade-in' ? styles.fadein : styles.fadeout}>
+        <Swiper
+          ref={sliderRef}
+          slidesPerView={8}
+          grid={{
+            rows: galleryRows,
+            fill: 'row',
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+              grid: {
+                rows: 1,
+                fill: 'row',
+              },
             },
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            grid: {
-              rows: 2,
-              fill: 'row',
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+              grid: {
+                rows: 2,
+                fill: 'row',
+              },
             },
-          },
-          992: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-            grid: {
-              rows: 2,
-              fill: 'row',
+            992: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+              grid: {
+                rows: 2,
+                fill: 'row',
+              },
             },
-          },
-        }}
-        slidespercolumnfill='row'
-        spaceBetween={30}
-        modules={[Grid]}
-        className='mySwiper'
-      >
-        {categoryProducts.map(item => (
-          <SwiperSlide className='col-5 col-md-3 col-xl-2' key={item.id}>
-            <ProductBox {...item} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          }}
+          slidespercolumnfill='row'
+          spaceBetween={30}
+          modules={[Grid]}
+          className='mySwiper'
+        >
+          {categoryProducts.map(item => (
+            <SwiperSlide key={item.id}>
+              <ProductBox {...item} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };
