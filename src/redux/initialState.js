@@ -397,6 +397,18 @@ const initialState = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
     },
   ],
+
+  brands: [
+    { id: 1, name: 'Brand1' },
+    { id: 2, name: 'Brand2' },
+    { id: 3, name: 'Brand3' },
+    { id: 4, name: 'Brand4' },
+    { id: 5, name: 'Brand5' },
+    { id: 6, name: 'Brand6' },
+    { id: 7, name: 'Brand7' },
+    { id: 8, name: 'Brand8' },
+  ],
+
   hotdeals: [
     {
       id: 'aenean-ru-bristique-2',
