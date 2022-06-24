@@ -10,6 +10,7 @@ const CompanyClaim = () => {
   const [cartNumber, setCartNumber] = useState(0);
   const [cartNumberLenght] = useState(cartNumber.toString().length);
   const [classes, setClasses] = useState(styles.cartCounter);
+
   useEffect(() => {
     if (cartNumberLenght === 5) {
       setClasses(styles.cartCounterFor5);
@@ -27,25 +28,27 @@ const CompanyClaim = () => {
   return (
     <div className={styles.root}>
       <div className='container'>
-        <div className='row align-items-center'>
-          <div className={`col text-left ${styles.phoneNumber}`}>
-            <p>
-              <FontAwesomeIcon className={styles.icon} icon={faMobileAlt} /> 2300 - 3560
-              - 222
-            </p>
-          </div>
-          <div className='col text-center'>
-            <a href='#'>
-              <img src='/images/logo.png' alt='Bazar' />
-            </a>
-          </div>
-          <div className={`col text-right ${styles.cart}`}>
+        <div className='row align-content-stretch'>
+          <a href='#' className='col-6 col-md-4 order-1 order-md-2 m-auto text-center'>
+            <img src='/images/logo.png' alt='Bazar' />
+          </a>
+          <div
+            className={`col-6 col-md-4 order-2 flex-row flex-md-col m-auto text-right ${styles.cart}`}
+          >
             <a href='#' className={styles.cartBox}>
               <div className={styles.cartIcon}>
                 <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
               </div>
               <div className={classes}>{cartNumber}</div>
             </a>
+          </div>
+          <div
+            className={`col-6 col-md-4 order-3 order-md-1 flex-row flex-md-col ml-auto align-self-center text-right text-md-left ${styles.phoneNumber}`}
+          >
+            <p>
+              <FontAwesomeIcon className={styles.icon} icon={faMobileAlt} />
+              <span className={styles.number}>2300 - 3560 - 222</span>
+            </p>
           </div>
         </div>
       </div>

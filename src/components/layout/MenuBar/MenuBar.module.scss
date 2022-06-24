@@ -38,9 +38,9 @@
 
       &:hover,
       &.active {
-        background-color: $primary;
+        background-color: $hover-color;
         color: $border-color-light;
-        border-color: $primary;
+        border-color: $hover-color;
       }
 
       &.active {

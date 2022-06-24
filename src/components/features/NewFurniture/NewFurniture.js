@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import useWindowSize from '../../common/useWindowSize/useWindowSize';
 import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
@@ -17,12 +18,22 @@ import '../../../../node_modules/swiper/swiper.scss';
 import '../../../../node_modules/swiper/modules/pagination/pagination.scss';
 
 const NewFurniture = () => {
+  const newFurnitureSize = useWindowSize();
+  const [galleryRows, setGalleryRows] = useState(null);
   const [prevButton, setPrevButton] = useState(false);
   const [nextButton, setNextButtone] = useState(false);
   const [activeCategory, setActiveCategory] = useState('bed');
   const categories = useSelector(state => getAllCategories(state));
   const products = useSelector(state => getAllProducts(state));
   const sliderRef = useRef(null);
+
+  useEffect(() => {
+    if (newFurnitureSize[0] < 768) {
+      setGalleryRows(1);
+    } else {
+      setGalleryRows(2);
+    }
+  }, [newFurnitureSize]);
 
   const handlePrev = useCallback(e => {
     if (!sliderRef.current) return;
@@ -87,10 +98,36 @@ const NewFurniture = () => {
       </div>
       <Swiper
         ref={sliderRef}
-        slidesPerView={5}
+        slidesPerView={8}
         grid={{
-          rows: 2,
+          rows: galleryRows,
           fill: 'row',
+        }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            grid: {
+              rows: 1,
+              fill: 'row',
+            },
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            grid: {
+              rows: 2,
+              fill: 'row',
+            },
+          },
+          992: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            grid: {
+              rows: 2,
+              fill: 'row',
+            },
+          },
         }}
         slidespercolumnfill='row'
         spaceBetween={30}

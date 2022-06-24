@@ -19,6 +19,7 @@ const initialState = {
       newFurniture: true,
       favorite: false,
       compare: false,
+      oldPrice: 45,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -369,6 +370,12 @@ const initialState = {
       subname: 'SAVE UP 45% OF FURNITURE',
       image: '/images/deal-3.jpeg',
     },
+    {
+      id: 'deal-4',
+      name: 'Bedroom Bed',
+      value: '$50.80',
+      image: '/images/deal-4.jpeg',
+    },
   ],
   feedbacks: [
     {
@@ -390,6 +397,7 @@ const initialState = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
     },
   ],
+
   brands: [
     { id: 1, name: 'Brand1' },
     { id: 2, name: 'Brand2' },
@@ -399,6 +407,22 @@ const initialState = {
     { id: 6, name: 'Brand6' },
     { id: 7, name: 'Brand7' },
     { id: 8, name: 'Brand8' },
+  ],
+
+  hotdeals: [
+    {
+      id: 'aenean-ru-bristique-2',
+      dotId: 2,
+      name: 'Aenean Ru Bristique 2',
+      category: 'chair',
+      price: 30,
+      oldPrice: 45,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      favorite: true,
+      compare: false,
+    },
   ],
 };
 

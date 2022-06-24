@@ -1,14 +1,14 @@
 import styles from './StaticDeals.module.scss';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { getStaticDeals } from '../../../redux/staticDealsRedux';
+// import { useSelector } from 'react-redux';
+// import { getStaticDeals } from '../../../redux/staticDealsRedux';
 
 const SectionDeals = () => {
-  const deals = useSelector(getStaticDeals);
+  // const deals = useSelector(getStaticDeals);
 
   return (
     <div className='container'>
-      <div className={styles.grid}>
+      {/* <div className={styles.grid}>
         <div className={styles.first}>
           <img src={deals[0].image} alt='deal1' />
           <div className={styles.left}>
@@ -36,7 +36,7 @@ const SectionDeals = () => {
             <h5>{deals[2].subname}</h5>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
