@@ -11,7 +11,7 @@ const Brands = () => {
     <div className={styles.root}>
       <div className='container'>
         <hr></hr>
-        <div className='row d-flex justify-content-around'>
+        <div className='column d-flex justify-content-around'>
           <Button variant='dark'>
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>
