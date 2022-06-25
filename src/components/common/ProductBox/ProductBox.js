@@ -42,7 +42,7 @@ const ProductBox = ({ ...props }) => {
           <ProductImage id={props.id} />
           {props.promo && <div className={styles.sale}>{props.promo}</div>}
           <div className={styles.buttons}>
-            <QuickViewProduct />
+            <QuickViewProduct {...props} />
             <Button variant='small'>
               <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
             </Button>
