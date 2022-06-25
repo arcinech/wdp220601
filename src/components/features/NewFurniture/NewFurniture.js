@@ -135,7 +135,7 @@ const NewFurniture = () => {
         className='mySwiper'
       >
         {categoryProducts.map(item => (
-          <SwiperSlide className='col-5 col-md-3 col-xl-2' key={item.id}>
+          <SwiperSlide key={item.id}>
             <ProductBox {...item} />
           </SwiperSlide>
         ))}
