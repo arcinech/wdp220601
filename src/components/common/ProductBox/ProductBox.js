@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import QuickViewProduct from '../../features/QuickViewProduct/QuickViewProduct';
 import ProductImage from '../ProductImage/ProductImage';
 import { useDispatch, useSelector } from 'react-redux';
 import StarRating from '../StarRating/StarRating';
@@ -37,7 +38,7 @@ const ProductBox = ({ ...props }) => {
         <ProductImage id={props.id} />
         {props.promo && <div className={styles.sale}>{props.promo}</div>}
         <div className={styles.buttons}>
-          <Button variant='small'>Quick View</Button>
+          <QuickViewProduct />
           <Button variant='small'>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
