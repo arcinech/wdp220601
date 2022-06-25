@@ -87,10 +87,10 @@ const NewFurniture = () => {
           <div className={'col-auto ' + styles.dots}>
             <ul>
               <li>
-                <a onClick={handlePrev} className={prevButton && styles.active} />
+                <a onClick={handlePrev} className={clsx(prevButton && styles.active)} />
               </li>
               <li>
-                <a onClick={handleNext} className={nextButton && styles.active} />
+                <a onClick={handleNext} className={clsx(nextButton && styles.active)} />
               </li>
             </ul>
           </div>
@@ -135,7 +135,7 @@ const NewFurniture = () => {
         className='mySwiper'
       >
         {categoryProducts.map(item => (
-          <SwiperSlide className='col-5 col-md-3 col-xl-2' key={item.id}>
+          <SwiperSlide key={item.id}>
             <ProductBox {...item} />
           </SwiperSlide>
         ))}
