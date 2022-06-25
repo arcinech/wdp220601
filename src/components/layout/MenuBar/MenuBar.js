@@ -9,13 +9,13 @@ import { NavLink } from 'react-router-dom';
 
 const MenuBar = ({ children }) => {
   const menuBarLinks = [
-    { id: 0, name: 'Home' },
-    { id: 1, name: 'Furniture' },
-    { id: 2, name: 'Chair' },
-    { id: 3, name: 'Table' },
-    { id: 4, name: 'Sofa' },
-    { id: 5, name: 'Bedroom' },
-    { id: 6, name: 'Blog' },
+    { id: 0, name: 'Home', hash: '/' },
+    { id: 1, name: 'Furniture', hash: '/shop/furniture' },
+    { id: 2, name: 'Chair', hash: '/shop/chair' },
+    { id: 3, name: 'Table', hash: '/shop/table' },
+    { id: 4, name: 'Sofa', hash: '/shop/sofa' },
+    { id: 5, name: 'Bedroom', hash: '/shop/bedroom' },
+    { id: 6, name: 'Blog', hash: '/blog' },
   ];
 
   return (
@@ -35,7 +35,7 @@ const MenuBar = ({ children }) => {
                       '' + (!isActive ? '' : `${styles.active}`)
                     }
                     key={link.id}
-                    to={link.name === 'Home' ? '/' : `/shop/${link.name}`}
+                    to={link.hash}
                   >
                     {link.name}
                   </NavLink>
