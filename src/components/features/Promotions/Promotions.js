@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import clsx from 'clsx';
 
 import ProductBox from '../../common/ProductBox/ProductBox';
 import ProductImage from '../../common/ProductImage/ProductImage';
@@ -16,18 +17,13 @@ const Promotions = () => {
     <div className={`${styles.root} container`}>
       <div className={`col-4 ${styles.hotdeals}`}>
         <div>HOT DEALS</div>
-        <div className={'col-auto ' + styles.dots}>
-          <ul>
-            <li>
-              <a className={styles.active} />
-            </li>
-            <li>
-              <a />
-            </li>
-            <li>
-              <a />
-            </li>
-          </ul>
+        <div className={`col-auto ${styles.dots}`}>
+          <a className={clsx(styles.dot, styles.active)}>
+            <span />
+          </a>
+          <a className={clsx(styles.dot)}>
+            <span />
+          </a>
         </div>
       </div>
       <div className='row no-gutters align-items-end'>

@@ -75,34 +75,33 @@
     padding: 15px;
   }
   .dots {
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translateY(15px);
-
-    ul {
-      margin: 0;
-      padding: 0 0 0 1rem;
-      list-style: none;
-
-      li {
-        display: inline-block;
-        margin-left: 0.5rem;
-
-        a {
-          display: block;
-          width: 13px;
-          height: 13px;
-          border-radius: 6px;
-          background-color: $NewFurniture-link-bg;
-          font-size: 0;
-
-          &.active,
-          &:hover {
-            background-color: $primary;
-          }
-        }
-      }
-    }
+    display: flex;
+    border: none;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
+
+  .dot {
+    height: 13px;
+    width: 13px;
+    max-height: 13px;
+    max-width: 13px;
+    background-color: #bbb;
+    border-radius: 6px;
+    display: inline-block;
+
+    &:first-child {
+      margin-right: 7px;
+    }
+
+    a {
+      width: 13px;
+      height: 13px;
+    }
+
+    &.active,
+    &:hover {
+      background-color: $hover-color;
+      }
+   }
 }
