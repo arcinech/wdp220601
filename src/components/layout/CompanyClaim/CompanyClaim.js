@@ -39,7 +39,7 @@ const CompanyClaim = () => {
             <img src='/images/logo.png' alt='Bazar' />
           </Nav.Link>
           <div
-            className={`col-6 col-md-4 order-2 flex-row flex-md-col m-auto text-right ${styles.cart}`}
+            className={`col-6 col-md-4 order-2 flex-row flex-md-col m-auto justify-content-end ${styles.cart}`}
           >
             <a href='#' className={styles.cartBox}>
               <div className={styles.cartIcon}>
