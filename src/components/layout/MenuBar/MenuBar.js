@@ -28,15 +28,17 @@ const MenuBar = ({ children }) => {
           <div className='order-sm-1 order-lg-2'>
             <Navbar.Toggle aria-controls='responsive-navbar' />
             <Navbar.Collapse id='responsive-navbar'>
-              <Nav className={`'col-auto' + ${styles.menu}`}>
+              <Nav className={`col-auto + ${styles.menu}`}>
                 {menuBarLinks.map(link => (
-                  <Nav.Link
-                    as={NavLink}
+                  <NavLink
+                    className={({ isActive }) =>
+                      '' + (!isActive ? '' : `${styles.active}`)
+                    }
                     key={link.id}
                     to={link.name === 'Home' ? '/' : `/shop/${link.name}`}
                   >
                     {link.name}
-                  </Nav.Link>
+                  </NavLink>
                 ))}
               </Nav>
             </Navbar.Collapse>
