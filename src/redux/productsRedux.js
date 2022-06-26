@@ -41,7 +41,7 @@ const productsReducer = function(statePart = [], action) {
       );
     case TOGGLE_COMPARE: {
       return statePart.map(item => {
-        if (item.id !== action.payload) return item;
+        if (item.id !== action.payload.id) return item;
         return {
           ...item,
           compare: !item.compare,

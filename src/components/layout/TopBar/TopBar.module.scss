@@ -15,10 +15,10 @@
       a {
         color: $text-color-light;
         font-size: 13px;
+        text-decoration: none;
 
         &:hover {
           color: $hover-color;
-          text-decoration: none;
         }
       }
     }
@@ -37,6 +37,14 @@
 
     .icon {
       margin-right: 5px;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .topMenu ul li {
+    .text {
+      font-size: 0;
     }
   }
 }

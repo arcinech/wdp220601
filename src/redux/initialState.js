@@ -19,6 +19,7 @@ const initialState = {
       newFurniture: true,
       favorite: false,
       compare: false,
+      oldPrice: 45,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -369,6 +370,12 @@ const initialState = {
       subname: 'SAVE UP 45% OF FURNITURE',
       image: '/images/deal-3.jpeg',
     },
+    {
+      id: 'deal-4',
+      name: 'Bedroom Bed',
+      value: '$50.80',
+      image: '/images/deal-4.jpeg',
+    },
   ],
   feedbacks: [
     {
@@ -388,6 +395,89 @@ const initialState = {
       name: 'Cecil Stedman',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio. Aenean ac pellentesque arcu. Fusce ullamcorper elementum leo, ',
+    },
+  ],
+
+  brands: [
+    { id: 1, name: 'Brand1' },
+    { id: 2, name: 'Brand2' },
+    { id: 3, name: 'Brand3' },
+    { id: 4, name: 'Brand4' },
+    { id: 5, name: 'Brand5' },
+    { id: 6, name: 'Brand6' },
+    { id: 7, name: 'Brand7' },
+    { id: 8, name: 'Brand8' },
+  ],
+
+  hotdeals: [
+    {
+      id: 'aenean-ru-bristique-2',
+      dotId: 2,
+      name: 'Aenean Ru Bristique 2',
+      category: 'chair',
+      price: 30,
+      oldPrice: 45,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      favorite: true,
+      compare: false,
+    },
+    {
+      id: 'aenean-ru-bristique-3',
+      dotId: 3,
+      name: 'Aenean Ru Bristique 3',
+      category: 'chair',
+      price: 30,
+      oldPrice: 45,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      favorite: true,
+      compare: false,
+    },
+    {
+      id: 'aenean-ru-bristique-4',
+      dotId: 4,
+      name: 'Aenean Ru Bristique 4',
+      category: 'chair',
+      price: 30,
+      oldPrice: 45,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      favorite: true,
+      compare: false,
+    },
+  ],
+
+  blogs: [
+    {
+      id: 1,
+      photo: 'aenean-ru-bristique-1',
+      name: 'Product That Fight Static',
+      date: '15 JAN 2016',
+      comments: '4',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio.',
+    },
+    {
+      id: 2,
+      photo: 'aenean-ru-bristique-4',
+      name: 'Product That Fight Static',
+      date: '15 JAN 2016',
+      comments: '4',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio.',
+    },
+    {
+      id: 3,
+      photo: 'aenean-ru-bristique-3',
+      name: 'Product That Fight Static',
+      date: '15 JAN 2016',
+      comments: '4',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio.',
     },
   ],
 };

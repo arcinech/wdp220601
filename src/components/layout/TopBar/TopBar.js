@@ -29,16 +29,18 @@ const TopBar = () => (
             </li>
           </ul>
         </div>
-        <div className={`col text-right ${styles.topMenu}`}>
+        <div className={`col d-flex justify-content-end ${styles.topMenu}`}>
           <ul>
             <li>
               <a href='#'>
-                <FontAwesomeIcon className={styles.icon} icon={faUser} /> Login
+                <FontAwesomeIcon className={styles.icon} icon={faUser} />{' '}
+                <span className={styles.text}>Login</span>
               </a>
             </li>
             <li>
               <a href='#'>
-                <FontAwesomeIcon className={styles.icon} icon={faLock} /> Register
+                <FontAwesomeIcon className={styles.icon} icon={faLock} />{' '}
+                <span className={styles.text}>Register</span>
               </a>
             </li>
             <li>
