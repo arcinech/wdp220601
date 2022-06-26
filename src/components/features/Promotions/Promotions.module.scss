@@ -88,5 +88,30 @@
     :global(.swiper-pagination-bullet-active) {
       background-color: $hover-color;
     }
+
   }
+
+  .dot {
+    height: 13px;
+    width: 13px;
+    max-height: 13px;
+    max-width: 13px;
+    background-color: #bbb;
+    border-radius: 6px;
+    display: inline-block;
+
+    &:first-child {
+      margin-right: 7px;
+    }
+
+    a {
+      width: 13px;
+      height: 13px;
+    }
+
+    &.active,
+    &:hover {
+      background-color: $hover-color;
+      }
+   }
 }

@@ -65,10 +65,10 @@ const NewFurniture = () => {
     <div className={`${styles.root} container`}>
       <div className={styles.panelBar}>
         <div className='row no-gutters align-items-end'>
-          <div className={styles.heading}>
+          <div className={`col ${styles.heading}`}>
             <h3>New furniture</h3>
           </div>
-          <div className={'col-12 col-sm-6 col-md ' + styles.menu}>
+          <div className={'col col-sm-6 col-md ' + styles.menu}>
             <ul>
               {categories.map(item => (
                 <li key={item.id}>
@@ -84,15 +84,19 @@ const NewFurniture = () => {
               ))}
             </ul>
           </div>
-          <div className={'col-auto ' + styles.dots}>
-            <ul>
-              <li>
-                <a onClick={handlePrev} className={clsx(prevButton && styles.active)} />
-              </li>
-              <li>
-                <a onClick={handleNext} className={clsx(nextButton && styles.active)} />
-              </li>
-            </ul>
+          <div className={`col-auto ${styles.dots}`}>
+            <a
+              onClick={handlePrev}
+              className={clsx(styles.dot, prevButton && styles.active)}
+            >
+              <span />
+            </a>
+            <a
+              onClick={handleNext}
+              className={clsx(styles.dot, nextButton && styles.active)}
+            >
+              <span />
+            </a>
           </div>
         </div>
       </div>

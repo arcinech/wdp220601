@@ -5,6 +5,12 @@
   background-color: #ffffff;
 }
 
+.photo {
+  border: 1px solid $border-color-mediumLight;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 button {
   border-radius: 0 !important;
   margin-left: 15px;

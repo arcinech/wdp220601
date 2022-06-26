@@ -11,6 +11,7 @@
 
     .heading {
       position: relative;
+      padding: 0;
 
       h3 {
         color: $primary;
@@ -65,37 +66,36 @@
       }
     }
 
+
     .dots {
-      position: absolute;
-      right: 0;
-      top: 0;
+      display: flex;
+      border: none;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
 
-      ul {
-        margin: 0;
-        padding: 0 0 0 1rem;
-        list-style: none;
-        background-color: $bg-color-light;
-        transform: translateY(15px);
+    .dot {
+      height: 13px;
+      width: 13px;
+      max-height: 13px;
+      max-width: 13px;
+      background-color: #bbb;
+      border-radius: 6px;
+      display: inline-block;
 
-        li {
-          display: inline-block;
-          margin-left: 0.5rem;
-
-          a {
-            display: block;
-            width: 13px;
-            height: 13px;
-            border-radius: 6px;
-            background-color: $NewFurniture-link-bg;
-            font-size: 0;
-
-            &.active,
-            &:hover {
-              background-color: $hover-color;
-            }
-          }
-        }
+      &:first-child {
+        margin-right: 7px;
       }
+
+      a {
+        width: 13px;
+        height: 13px;
+      }
+
+      &.active,
+      &:hover {
+        background-color: $hover-color;
+        }
     }
   }
 }
