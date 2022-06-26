@@ -5,31 +5,39 @@
 }
 .blogData {
   height: 250px;
-  background-color: rgb(183, 183, 183);
   display: flex;
   align-items: flex-end;
   justify-content: center;
 
-  .data {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: white;
-    margin-right: 15px;
-    margin-left: 15px;
-    font-size: 14px;
-    height: 55px;
-
-    .date {
-      padding-right: 25px;
-      padding-left: 25px;
-    }
-    .comments {
-      padding-right: 25px;
-      padding-left: 25px;
+  .photo {
+    img {
+      z-index: 1;
     }
   }
 }
+.data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  margin-right: 20px;
+  margin-top: -50px;
+  margin-left: 20px;
+  font-size: 14px;
+  height: 55px;
+  z-index: 2;
+  position: relative;
+
+  .date {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  .comments {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
+
 .date:hover {
   color: $hover-color;
 }
