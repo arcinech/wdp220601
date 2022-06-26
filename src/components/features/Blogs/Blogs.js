@@ -43,6 +43,7 @@ const Blog = () => {
             <SwiperSlide className='' key={blog.id}>
               <BlogContent
                 id={blog.id}
+                photo={blog.photo}
                 name={blog.name}
                 date={blog.date}
                 comments={blog.comments}
@@ -58,6 +59,7 @@ const Blog = () => {
 
 Blog.propTypes = {
   id: PropTypes.number,
+  photo: PropTypes.string,
   name: PropTypes.string,
   date: PropTypes.string,
   comments: PropTypes.string,
