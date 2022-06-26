@@ -14,7 +14,7 @@ import ProductImage from '../ProductImage/ProductImage';
 import { useDispatch, useSelector } from 'react-redux';
 import StarRating from '../StarRating/StarRating';
 import { toggleCompare, setFavorite } from '../../../redux/productsRedux';
-import { useLocalStorage } from '../../../customHooks/useLocalStorage';
+import { useLocalStorage } from '../../../utils/useLocalStorage';
 
 const ProductBox = ({ ...props }) => {
   const dispatch = useDispatch();
