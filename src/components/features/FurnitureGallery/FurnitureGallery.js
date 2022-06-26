@@ -8,6 +8,7 @@ import Button from '../../common/Button/Button';
 import { getStaticDeals } from '../../../redux/staticDealsRedux';
 import ProductImage from '../../common/ProductImage/ProductImage';
 import { Nav } from 'react-bootstrap';
+import clsx from 'clsx';
 
 const FurnitureGallery = () => {
   const products = useSelector(getAllProducts);
@@ -29,10 +30,10 @@ const FurnitureGallery = () => {
             <h3>Furniture Gallery</h3>
           </div>
           <div>
-            <Nav fill variant='tabs' defaultActiveKey='/topseller'>
+            <Nav fill variant='tabs-list' defaultActiveKey='/topseller'>
               {navLinksGallery.map(galleryLink => (
                 <Nav.Item key={galleryLink.id} className={styles.navitem}>
-                  <Nav.Link className={styles.navlink} eventKey={galleryLink.id}>
+                  <Nav.Link className={clsx(styles.navlink)} eventKey={galleryLink.id}>
                     {galleryLink.name}
                   </Nav.Link>
                 </Nav.Item>

@@ -120,21 +120,15 @@
   align-items: center;
   justify-content: center;
   // border: 1px solid $border-color-mediumLight;
-  // background-color: $bg-color-light;
 
   .navlink {
     color: black;
 
-    &:hover {
+    &:hover, &:active, &:focus {
       color: $primary;
       background-color: $productBox-bg;
-      // border-top: 3px solid $primary;
+      border-top: 3px solid $primary;
     }
   }
-
-  &.nav-fill {
-      border-top: 3px solid $primary;
-  }
 }
-
 
