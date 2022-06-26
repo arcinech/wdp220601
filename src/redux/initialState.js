@@ -450,6 +450,36 @@ const initialState = {
       compare: false,
     },
   ],
+
+  blogs: [
+    {
+      id: 1,
+      photo: 'aenean-ru-bristique-1',
+      name: 'Product That Fight Static',
+      date: '15 JAN 2016',
+      comments: '4',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio.',
+    },
+    {
+      id: 2,
+      photo: 'aenean-ru-bristique-4',
+      name: 'Product That Fight Static',
+      date: '15 JAN 2016',
+      comments: '4',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio.',
+    },
+    {
+      id: 3,
+      photo: 'aenean-ru-bristique-3',
+      name: 'Product That Fight Static',
+      date: '15 JAN 2016',
+      comments: '4',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci dui, commodo consectetur augue elementum sed. Donec at sem rutrum, pulvinar arcu et, efficitur nibh. Nam vitae sollicitudin justo, at ullamcorper odio.',
+    },
+  ],
 };
 
 export default initialState;
