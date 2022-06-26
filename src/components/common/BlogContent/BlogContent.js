@@ -10,6 +10,7 @@ import { faCalendarDay, faComments } from '@fortawesome/free-solid-svg-icons';
 const BlogContent = props => {
   BlogContent.propTypes = {
     id: PropTypes.number,
+    photo: PropTypes.string,
     name: PropTypes.string,
     date: PropTypes.string,
     comments: PropTypes.string,
@@ -20,17 +21,23 @@ const BlogContent = props => {
     <div className='container'>
       <div className={`${styles.box}`}>
         <div className={styles.blogData}>
-          <div className={styles.data}>
-            <p className={styles.date}>
-              <FontAwesomeIcon icon={faCalendarDay} className='mr-2' />
-              {props.date}
-            </p>
-            <p className={styles.comments}>
-              <FontAwesomeIcon icon={faComments} className='mr-2' />
-              {props.comments} Comments
-            </p>
-          </div>
+          <img
+            className={styles.photo}
+            src={`/images/${props.photo}.jpeg`}
+            alt=''
+          ></img>
         </div>
+        <div className={styles.data}>
+          <p className={styles.date}>
+            <FontAwesomeIcon icon={faCalendarDay} className='mr-2' />
+            {props.date}
+          </p>
+          <p className={styles.comments}>
+            <FontAwesomeIcon icon={faComments} className='mr-2' />
+            {props.comments} Comments
+          </p>
+        </div>
+
         <div className={`container ${styles.blogContent}`}>
           <div className={styles.name}>{props.name}</div>
           <div className={styles.content}>{props.content}</div>
