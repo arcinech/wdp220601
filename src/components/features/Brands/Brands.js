@@ -60,9 +60,22 @@ const Brands = () => {
             slidesPerView={6}
             spaceBetween={30}
             className='mySwiper'
+            breakpoints={{
+              0: {
+                slidesPerView: 2,
+              },
+              390: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 6,
+                spaceBetween: 10,
+              },
+            }}
           >
             {brands.map(brand => (
-              <SwiperSlide className='' key={brand.id}>
+              <SwiperSlide className='col-5 col-md-3 col-xl-2' key={brand.id}>
                 <Brand key={brand.id} id={brand.id} />
               </SwiperSlide>
             ))}
