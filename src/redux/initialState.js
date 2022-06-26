@@ -454,6 +454,7 @@ const initialState = {
   blogs: [
     {
       id: 1,
+      photo: 'aenean-ru-bristique-1',
       name: 'Product That Fight Static',
       date: '15 JAN 2016',
       comments: '4',
@@ -462,6 +463,7 @@ const initialState = {
     },
     {
       id: 2,
+      photo: 'aenean-ru-bristique-4',
       name: 'Product That Fight Static',
       date: '15 JAN 2016',
       comments: '4',
@@ -470,6 +472,7 @@ const initialState = {
     },
     {
       id: 3,
+      photo: 'aenean-ru-bristique-3',
       name: 'Product That Fight Static',
       date: '15 JAN 2016',
       comments: '4',
