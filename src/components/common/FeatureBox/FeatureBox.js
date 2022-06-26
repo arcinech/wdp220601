@@ -10,7 +10,7 @@ const FeatureBox = ({ active, icon, children }) => (
         <FontAwesomeIcon className={styles.icon} icon={icon} />
       </div>
     )}
-    ;<div className={styles.content}>{children}</div>
+    <div className={styles.content}>{children}</div>
   </div>
 );
 

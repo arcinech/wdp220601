@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import styles from './FeedbackContent.module.scss';
 
 const FeedbackContent = ({ active }) => {
-  console.log(active);
   return (
     <div>
       <span className={styles.dip}>&apos;&apos;</span>

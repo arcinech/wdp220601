@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import FeatureBoxes from './FeatureBoxes';
+import Brand from './Brand';
 
-describe('Component FeatureBoxes', () => {
+describe('Component Brand', () => {
   it('should render without crashing', () => {
-    const component = shallow(<FeatureBoxes />);
+    const component = shallow(<Brand />);
     expect(component).toBeTruthy();
   });
 });

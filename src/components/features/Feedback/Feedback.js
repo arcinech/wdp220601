@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './Feedback.module.scss';
+import clsx from 'clsx';
 
 import { useSelector } from 'react-redux';
 import {
@@ -22,24 +23,16 @@ const Feedback = () => {
     <div className={`${styles.root} container`}>
       <div className={styles.panelBar}>
         <div className='row no-gutters align-items-end'>
-          <div className={styles.heading}>
+          <div className={`col ${styles.heading}`}>
             <h3>Client Feedback</h3>
           </div>
-          <span className='col '></span>
-          <div>
-            <div className={styles.dots}>
-              <ul>
-                <li>
-                  <a className={styles.active} />
-                </li>
-                <li>
-                  <a />
-                </li>
-                <li>
-                  <a />
-                </li>
-              </ul>
-            </div>
+          <div className={`col-auto ${styles.dots}`}>
+            <a className={clsx(styles.dot, styles.active)}>
+              <span />
+            </a>
+            <a className={clsx(styles.dot)}>
+              <span />
+            </a>
           </div>
         </div>
         <Swiper>
