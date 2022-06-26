@@ -7,43 +7,42 @@ import GallerySlider from '../../common/GallerySlider/GallerySlider';
 import Button from '../../common/Button/Button';
 import { getStaticDeals } from '../../../redux/staticDealsRedux';
 import ProductImage from '../../common/ProductImage/ProductImage';
+import { Nav } from 'react-bootstrap';
 
 const FurnitureGallery = () => {
   const products = useSelector(getAllProducts);
   const [id, setId] = useState(products[0].id);
   const deal = useSelector(getStaticDeals);
 
+  const navLinksGallery = [
+    { id: 0, name: 'FEATURED', href: '/featured' },
+    { id: 1, name: 'TOP SELLER', href: '/topseller' },
+    { id: 2, name: 'SALE OFF', href: '/saleoff' },
+    { id: 3, name: 'TOP RATED', href: '/toprated' },
+  ];
+
   return (
-    <div className='container'>
-      <div className={`row ${styles.root}`}>
-        <div className='col-6'>
-          <div className={styles.panelBar}>
-            <div className='row no-gutters align-items-end'>
-              <div className={'col-auto ' + styles.heading}>
-                <h3>Furniture Gallery</h3>
-              </div>
-            </div>
-          </div>
-          <div className={styles.box}>
-            <div className='row'>
-              <div className={`col ${styles.tabs}`}>
-                <div>{'featured'.toUpperCase()}</div>
-              </div>
-              <div className={`col ${styles.tabs}`}>{'top seller'.toUpperCase()}</div>
-              <div className={`col ${styles.tabs} ${styles.active}`}>
-                {'Sale off'.toUpperCase()}
-              </div>
-              <div className={`col ${styles.tabs}`}>{'Top rated'.toUpperCase()}</div>
-            </div>
-            <div>
-              <GalleryProduct id={id} />
-            </div>
+    <div className={`container ${styles.root}`}>
+      <div className={`row ${styles.panelBar}`}>
+        <div className='col col-12 col-md-6 no-gutters align-items-end'>
+          <div className={`row ${styles.heading}`}>
+            <h3>Furniture Gallery</h3>
           </div>
           <div>
-            <GallerySlider products={products} setId={setId} id={id} />
+            <Nav fill variant='tabs' defaultActiveKey='/topseller'>
+              {navLinksGallery.map(galleryLink => (
+                <Nav.Item key={galleryLink.id} className={styles.navitem}>
+                  <Nav.Link className={styles.navlink} eventKey={galleryLink.id}>
+                    {galleryLink.name}
+                  </Nav.Link>
+                </Nav.Item>
+              ))}
+            </Nav>
+            <GalleryProduct className='d-none' id={id} />
           </div>
+          <GallerySlider products={products} setId={setId} id={id} />
         </div>
-        <div className={styles.deal + ' col-6'}>
+        <div className={`col col-0 col-md-6 d-none d-md-flex ${styles.deal}`}>
           <ProductImage id={deal[3].id} />
           <div className={styles.dealContent}>
             <h3>

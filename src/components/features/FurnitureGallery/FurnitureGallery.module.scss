@@ -10,6 +10,7 @@
   margin: 30px auto;
 
   .panelBar {
+    margin-bottom: 30px;
     position: relative;
 
     :global(.row) {
@@ -18,6 +19,7 @@
 
     .heading {
       position: relative;
+      margin-bottom: 30px;
 
       h3 {
         color: $primary;
@@ -108,3 +110,31 @@
   }
 
 }
+
+.navitem {
+  text-align: center;
+  height: 45px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border: 1px solid $border-color-mediumLight;
+  // background-color: $bg-color-light;
+
+  .navlink {
+    color: black;
+
+    &:hover {
+      color: $primary;
+      background-color: $productBox-bg;
+      // border-top: 3px solid $primary;
+    }
+  }
+
+  &.nav-fill {
+      border-top: 3px solid $primary;
+  }
+}
+
+
