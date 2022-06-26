@@ -3,17 +3,23 @@ import PropTypes from 'prop-types';
 
 import styles from './FeedbackContent.module.scss';
 
-const FeedbackContent = ({ active }) => {
+const FeedbackContent = props => {
+  FeedbackContent.propTypes = {
+    id: PropTypes.number,
+    name: PropTypes.string,
+    content: PropTypes.string,
+  };
+
   return (
     <div>
       <span className={styles.dip}>&apos;&apos;</span>
-      <div>{active.content}</div>
+      <div>{props.content}</div>
       <div className={styles.author}>
         <div className={styles.photo}>
-          <img src={`/images/feedback-${active.id}.jpg`} alt='photo' />
+          <img src={`/images/feedback-${props.id}.jpg`} alt='photo' />
         </div>
         <div className={styles.name}>
-          {active.name}
+          {props.name}
           <p className={styles.role}>Client</p>
         </div>
       </div>
@@ -22,8 +28,3 @@ const FeedbackContent = ({ active }) => {
 };
 
 export default FeedbackContent;
-
-FeedbackContent.propTypes = {
-  children: PropTypes.node,
-  active: PropTypes.object,
-};
