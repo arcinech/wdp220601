@@ -29,7 +29,7 @@ const TopBar = () => (
             </li>
           </ul>
         </div>
-        <div className={`col text-right ${styles.topMenu}`}>
+        <div className={`col d-flex justify-content-end ${styles.topMenu}`}>
           <ul>
             <li>
               <a href='#'>

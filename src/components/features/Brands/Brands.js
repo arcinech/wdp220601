@@ -1,9 +1,7 @@
 import { Button } from 'react-bootstrap';
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './Brands.module.scss';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { getAllBrands } from '../../../redux/brandsRedux';
@@ -49,7 +47,7 @@ const Brands = () => {
     <div className={styles.root}>
       <div className='container'>
         <hr></hr>
-        <div className='d-flex justify-content-around'>
+        <div className='column d-flex justify-content-around'>
           <Button
             variant='dark'
             onClick={handlePrev}
@@ -90,7 +88,6 @@ const Brands = () => {
             <FontAwesomeIcon icon={faArrowRight} />
           </Button>
         </div>
-
         <hr></hr>
       </div>
     </div>
@@ -98,7 +95,7 @@ const Brands = () => {
 };
 
 Brands.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
 };
 
 export default Brands;
