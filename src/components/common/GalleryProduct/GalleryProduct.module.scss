@@ -10,7 +10,7 @@
   height: 100%;
   position: relative;
 
-  >div:first-of-type img {
+  > div:first-of-type >div:first-of-type img {
     height: 380px;
   }
 
@@ -153,5 +153,14 @@
         border-color: transparent transparent $gallery-triangle transparent;
       }
     }
+  }
+
+  .fadein {
+    transition: opacity 1s ease;
+  }
+
+  .fadeout {
+    opacity: 0;
+    transition: opacity 1s ease;
   }
 }
