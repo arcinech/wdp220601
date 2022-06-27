@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,6 +17,7 @@ import {
   setFavorite,
 } from '../../../redux/productsRedux';
 import StarRating from '../../common/StarRating/StarRating';
+import { useLocalStorage } from '../../../utils/useLocalStorage';
 import styles from './GalleryProduct.module.scss';
 import clsx from 'clsx';
 
@@ -27,7 +28,10 @@ const GalleryProduct = ({ id, setOldId, oldId, fadeProp, setFadeProp }) => {
   );
   const dispatch = useDispatch();
 
-  const [isFavorite, setIsFavorite] = useState(product.favorite || false);
+  const [isFavorite, setIsFavorite] = useLocalStorage(
+    `${product.id}-favorite`,
+    product.favorite || false
+  );
 
   useEffect(() => {
     dispatch(setFavorite({ id, favorite: isFavorite }));
