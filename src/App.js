@@ -8,6 +8,7 @@ import ProductPage from './components/views/ProductPage/ProductPage';
 import CompareBar from './components/features/CompareBar/CompareBar';
 import Blog from './components/views/Blog/Blog';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Chatbot from './components/features/Chatbot/Chatbot';
 
 const App = () => (
   <MainLayout>
@@ -18,6 +19,7 @@ const App = () => (
       <Route exact path='/product/:productId' element={<ProductPage />} />
       <Route exact path='/blog' element={<Blog />} />
     </Routes>
+    <Chatbot />
   </MainLayout>
 );
 
