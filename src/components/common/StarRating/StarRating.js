@@ -40,7 +40,6 @@ const StarRating = props => {
         };
 
         const handleMouseOnStar = () => {
-          setRatingActive(true);
           setStarHover(starRatingValue);
         };
 
@@ -58,7 +57,7 @@ const StarRating = props => {
             />
             <FontAwesomeIcon
               color={
-                ratingActive &&
+                (ratingActive || starHover) &&
                 starRatingValue <= (starHover || userRating || starRating)
                   ? '#d58e32'
                   : 'black'
