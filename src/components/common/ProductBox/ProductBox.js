@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,9 +14,14 @@ import ProductImage from '../ProductImage/ProductImage';
 import { useDispatch, useSelector } from 'react-redux';
 import StarRating from '../StarRating/StarRating';
 import { toggleCompare, setFavorite } from '../../../redux/productsRedux';
+import { useLocalStorage } from '../../../utils/useLocalStorage';
 
 const ProductBox = ({ ...props }) => {
   const dispatch = useDispatch();
+  const [isFavorite, setIsFavorite] = useLocalStorage(
+    `${props.id}-favorite`,
+    props.favorite || false
+  );
 
   const compareNumber = useSelector(state =>
     state.products.filter(item => item.compare === true)
@@ -28,12 +33,14 @@ const ProductBox = ({ ...props }) => {
       dispatch(toggleCompare({ id: props.id }));
     }
   };
-  const [isFavorite, setIsFavorite] = useState(props.favorite || false);
+
+  useEffect(() => {
+    dispatch(setFavorite({ id: props.id, favorite: isFavorite }));
+  }, [isFavorite]);
 
   const changeFavorite = e => {
     e.preventDefault();
     setIsFavorite(!isFavorite);
-    dispatch(setFavorite({ id: props.id, favorite: isFavorite }));
   };
   if (!props.type) {
     return (
