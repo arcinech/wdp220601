@@ -4,6 +4,7 @@
   padding: 10px;
   display: flex;
   border: 1px solid $border-color-mediumLight;
+  justify-content: space-between;
   width: 100%;
 
   .slide {
@@ -14,10 +15,10 @@
   }
 
   .slideItem {
-    width: 70px;
-    height: 70px;
     overflow: hidden;
     margin: 0 3px;
+    width: 70px;
+    height: 70px;
   }
 
   img {

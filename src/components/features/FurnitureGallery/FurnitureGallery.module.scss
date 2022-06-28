@@ -121,3 +121,25 @@
     transition: opacity 1s ease;
   }
 }
+
+.navitem {
+  text-align: center;
+  height: 45px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border: 1px solid $border-color-mediumLight;
+
+  .navlink {
+    color: black;
+
+    &:hover, &:active, &:focus {
+      color: $primary;
+      background-color: $productBox-bg;
+      border-top: 3px solid $primary;
+    }
+  }
+}
+

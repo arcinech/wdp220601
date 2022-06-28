@@ -21,7 +21,7 @@ const GalleryProduct = ({ setId, id, products }) => {
   const leftClick = useCallback(e => {
     e.preventDefault();
     if (!sliderRef.current) return;
-    sliderRef.current.swiper.slidePrev(6);
+    sliderRef.current.swiper.slidePrev();
     if (e.type === 'mousedown') {
       setPrevButton(true);
     } else {
@@ -32,7 +32,7 @@ const GalleryProduct = ({ setId, id, products }) => {
   const rightClick = useCallback(e => {
     e.preventDefault();
     if (!sliderRef.current) return;
-    sliderRef.current.swiper.slideNext(6);
+    sliderRef.current.swiper.slideNext();
     if (e.type === 'mousedown') {
       setNextButton(true);
     } else {

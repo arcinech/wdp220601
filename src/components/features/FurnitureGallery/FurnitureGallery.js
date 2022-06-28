@@ -51,7 +51,7 @@ const FurnitureGallery = () => {
   return (
     <div className='container'>
       <div className={`row ${styles.root}`}>
-        <div className='col-6'>
+        <div className='col-12 col-lg-6'>
           <div className={styles.panelBar}>
             <div className='row align-items-end'>
               <div className={'col-auto ' + styles.heading}>
@@ -67,7 +67,7 @@ const FurnitureGallery = () => {
                   key={id}
                   data-category={item.category}
                   className={clsx(
-                    'col',
+                    'col-6 col-lg',
                     styles.tabs,
                     item.category === category ? styles.active : ''
                   )}
@@ -90,13 +90,11 @@ const FurnitureGallery = () => {
               />
             </div>
           </div>
-          <div
-            className={clsx(fadePropTab === 'fade-in' ? styles.fadein : styles.fadeout)}
-          >
+          <div className={clsx(fadePropTab === 'fade-in' ? styles.fadein : styles.fadeout)}>
             <GallerySlider products={selectedCategory} setId={setId} id={id} />
           </div>
         </div>
-        <div className={styles.deal + ' col-6'}>
+        <div className={`d-none col-lg-6 d-lg-block ${styles.deal}`}>
           <ProductImage id={deal[3].id} />
           <div className={styles.dealContent}>
             <h3>
