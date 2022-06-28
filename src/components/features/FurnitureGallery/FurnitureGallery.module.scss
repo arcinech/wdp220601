@@ -10,8 +10,12 @@
   margin: 30px auto;
 
   .panelBar {
-    margin-bottom: 30px;
     position: relative;
+
+    >div {
+      margin-left: 0;
+      margin-right: 0;
+    }
 
     :global(.row) {
       border-bottom: 4px solid $global-border-color;
@@ -19,7 +23,6 @@
 
     .heading {
       position: relative;
-      margin-bottom: 30px;
 
       h3 {
         color: $primary;
@@ -43,7 +46,6 @@
 
   .box {
     width: 100%;
-    padding-top: 30px;
     background-color: $productBox-bg;
     border: 1px solid $border-color-mediumLight;
     margin-bottom: 30px;
@@ -64,6 +66,7 @@
     justify-content: center;
     border: 1px solid $border-color-mediumLight;
     background-color: $bg-color-light;
+    text-decoration: none;
 
     &.active {
       border-top: 3px solid $primary;
@@ -109,6 +112,14 @@
 
   }
 
+  .fadein {
+    transition: opacity 1s ease;
+  }
+
+  .fadeout {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
 }
 
 .navitem {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './FurnitureGallery.module.scss';
 import { getAllProducts } from '../../../redux/productsRedux';
 import { useSelector } from 'react-redux';
@@ -7,43 +7,94 @@ import GallerySlider from '../../common/GallerySlider/GallerySlider';
 import Button from '../../common/Button/Button';
 import { getStaticDeals } from '../../../redux/staticDealsRedux';
 import ProductImage from '../../common/ProductImage/ProductImage';
-import { Nav } from 'react-bootstrap';
 import clsx from 'clsx';
 
 const FurnitureGallery = () => {
-  const products = useSelector(getAllProducts);
-  const [id, setId] = useState(products[0].id);
+  const [category, setCategory] = useState('featured');
+  const [oldCategory, setOldCategory] = useState(category);
+  const products = useSelector(state => getAllProducts(state));
+  const selectedCategory = products.filter(item => item[oldCategory] === true);
+  const [id, setId] = useState(selectedCategory[0].id);
+  const [oldId, setOldId] = useState(id);
   const deal = useSelector(getStaticDeals);
+  const [fadeProp, setFadeProp] = useState('fade-in');
+  const [fadePropTab, setFadePropTab] = useState('fade-in');
 
-  const navLinksGallery = [
-    { id: 0, name: 'FEATURED', href: '/featured' },
-    { id: 1, name: 'TOP SELLER', href: '/topseller' },
-    { id: 2, name: 'SALE OFF', href: '/saleoff' },
-    { id: 3, name: 'TOP RATED', href: '/toprated' },
+  const galleryCategories = [
+    { id: 0, name: 'FEATURED', category: 'featured' },
+    { id: 1, name: 'TOP SELLER', category: 'topSeller' },
+    { id: 2, name: 'SALE OFF', category: 'saleOff' },
+    { id: 3, name: 'TOP RATED', category: 'topRated' },
   ];
 
+  useEffect(() => {
+    setOldId(selectedCategory[0].id);
+    setId(selectedCategory[0].id);
+  }, [oldCategory]);
+
+  useEffect(() => {
+    if (oldCategory !== category) {
+      setFadePropTab('fade-out');
+      const timeout = setInterval(() => {
+        setOldCategory(category);
+        setFadePropTab('fade-in');
+      }, 1000);
+      return () => clearInterval(timeout);
+    }
+  }, [category]);
+
+  const categoryChange = e => {
+    e.preventDefault();
+    setCategory(e.currentTarget.getAttribute('data-category'));
+  };
+
   return (
-    <div className={`container ${styles.root}`}>
-      <div className={`row ${styles.panelBar}`}>
-        <div className='col col-12 col-md-6 no-gutters align-items-end'>
-          <div className={`row ${styles.heading}`}>
-            <h3>Furniture Gallery</h3>
+    <div className='container'>
+      <div className={`row ${styles.root}`}>
+        <div className='col-12 col-lg-6'>
+          <div className={styles.panelBar}>
+            <div className='row align-items-end'>
+              <div className={'col-auto ' + styles.heading}>
+                <h3>Furniture Gallery</h3>
+              </div>
+            </div>
           </div>
-          <div>
-            <Nav fill variant='tabs-list' defaultActiveKey='/topseller'>
-              {navLinksGallery.map(galleryLink => (
-                <Nav.Item key={galleryLink.id} className={styles.navitem}>
-                  <Nav.Link className={clsx(styles.navlink)} eventKey={galleryLink.id}>
-                    {galleryLink.name}
-                  </Nav.Link>
-                </Nav.Item>
+          <div className={styles.box}>
+            <div className='row'>
+              {galleryCategories.map(({ id, name, ...item }) => (
+                <div
+                  onClick={categoryChange}
+                  key={id}
+                  data-category={item.category}
+                  className={clsx(
+                    'col-6 col-lg',
+                    styles.tabs,
+                    item.category === category ? styles.active : ''
+                  )}
+                >
+                  <div>{name}</div>
+                </div>
               ))}
-            </Nav>
-            <GalleryProduct className='d-none' id={id} />
+            </div>
+            <div
+              className={clsx(
+                fadePropTab === 'fade-in' ? styles.fadein : styles.fadeout
+              )}
+            >
+              <GalleryProduct
+                id={id}
+                oldId={oldId}
+                setOldId={setOldId}
+                fadeProp={fadeProp}
+                setFadeProp={setFadeProp}
+              />
+            </div>
           </div>
-          <GallerySlider products={products} setId={setId} id={id} />
+          <div className={clsx(fadePropTab === 'fade-in' ? styles.fadein : styles.fadeout)}>
+            <GallerySlider products={selectedCategory} setId={setId} id={id} />
+          </div>
         </div>
-        <div className={`col col-0 col-md-6 d-none d-md-flex ${styles.deal}`}>
+        <div className={`d-none col-lg-6 d-lg-block ${styles.deal}`}>
           <ProductImage id={deal[3].id} />
           <div className={styles.dealContent}>
             <h3>

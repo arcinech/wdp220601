@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,19 +17,36 @@ import {
   setFavorite,
 } from '../../../redux/productsRedux';
 import StarRating from '../../common/StarRating/StarRating';
+import { useLocalStorage } from '../../../utils/useLocalStorage';
 import styles from './GalleryProduct.module.scss';
+import clsx from 'clsx';
 
-const GalleryProduct = ({ id }) => {
-  const product = useSelector(state => getProductById(state, id));
+const GalleryProduct = ({ id, setOldId, oldId, fadeProp, setFadeProp }) => {
+  const product = useSelector(state => getProductById(state, oldId));
   const compareNumber = useSelector(state =>
     state.products.filter(item => item.compare === true)
   );
   const dispatch = useDispatch();
-  const [isFavorite, setIsFavorite] = useState(product.favorite || false);
+
+  const [isFavorite, setIsFavorite] = useLocalStorage(
+    `${product.id}-favorite`,
+    product.favorite || false
+  );
 
   useEffect(() => {
     dispatch(setFavorite({ id, favorite: isFavorite }));
   }, [isFavorite]);
+
+  useEffect(() => {
+    if (oldId !== id) {
+      setFadeProp('fade-out');
+      const timeout = setInterval(() => {
+        setOldId(id);
+        setFadeProp('fade-in');
+      }, 1000);
+      return () => clearInterval(timeout);
+    }
+  }, [id]);
 
   const handleClick = e => {
     e.preventDefault();
@@ -45,7 +62,9 @@ const GalleryProduct = ({ id }) => {
 
   return (
     <div className={styles.root}>
-      <ProductImage id={id} />
+      <div className={clsx(fadeProp === 'fade-in' ? styles.fadein : styles.fadeout)}>
+        <ProductImage id={oldId} />
+      </div>
       <div className={styles.toolbox}>
         <Button
           variant={product.favorite ? 'active' : 'outline'}
@@ -89,4 +108,8 @@ export default GalleryProduct;
 GalleryProduct.propTypes = {
   id: PropTypes.string,
   setId: PropTypes.func,
+  oldId: PropTypes.string,
+  setOldId: PropTypes.func,
+  fadeProp: PropTypes.string,
+  setFadeProp: PropTypes.func,
 };
